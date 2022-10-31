@@ -822,7 +822,6 @@
             <h1>Data Karyawan</h1>
           </div>
           <div class="col-sm-6">
-          <a href="create-admin.php" class="btn-create">New Data+</a>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">DataTables</li>
@@ -853,8 +852,6 @@
                   <th>Tipe Target</th>
                   <th>Polaritas</th>
                   <th>Jabatan Pemilik KPI</th>
-                  <th>Status</th>
-                  <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -880,23 +877,10 @@
                   <td><?= $data['tipe_target'] ?></td>
                   <td><?= $data['polaritas'] ?></td>
                   <td><?= $data['divisi'] ?></td>
-                  <?php 
-
-                  if ($data['usulan_deskripsi'] == '') {
-                      echo '<td>'.'<button class="btn btn-warning">'. 'Data belum diubah' . '</button>'.'</td>';
-                  }else{
-                    echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
-                  }
-                  ?>
-                  <td>
-                    <a href="view-admin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-success">View</a>
-                    <a href="edit-admin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
-                    <a href="delete-admin.php?hal=delete&id=<?=$data['id_data']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
-                  </td>
                   <?php endwhile; ?>
                   </tbody>
                 </table>
-                <a href="export.php"><button class="btn btn-success">Export</button></a>
+        
               </div>
               <!-- /.card-body -->
             </div>
@@ -952,6 +936,7 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
