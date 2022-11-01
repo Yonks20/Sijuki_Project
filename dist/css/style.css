@@ -13,3 +13,7 @@
   font-weight: bold;
   color: black;
 }
+
+.dropdown-item {
+  width: 10px;
+}
