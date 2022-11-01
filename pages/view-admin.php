@@ -153,6 +153,15 @@ foreach($result as $row)
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../dist/css/style.css">
 </head>
+
+<?php
+session_start();
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:../login.php?pesan=gagal");
+	}
+?>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
@@ -306,7 +315,9 @@ foreach($result as $row)
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"> <?php 
+         echo $_SESSION['username'];
+          ?></a>
         </div>
       </div>
 
