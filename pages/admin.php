@@ -1,3 +1,15 @@
+<?php
+  //Koneksi database
+  $server = "localhost";
+  $user = "root";
+  $password = "";
+  $database = "kinerjapegawai";
+
+  //buat koneksi
+  $koneksi = mysqli_connect($server, $user, $password, $database) or die(mysqli_error($koneksi));
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +38,9 @@
   <!-- summernote -->
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
 </head>
+<?php
+session_start();
+?>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -188,8 +203,11 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"> <?php 
+         echo $_SESSION['username'];
+          ?></a>
         </div>
+      
       </div>
 
       <!-- SidebarSearch Form -->
