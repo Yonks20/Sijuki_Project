@@ -408,7 +408,7 @@ document.location='juknis-admin.php'
     <label for="" class="col-sm-2 col-form-label">Kategori Satuan</label>
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tkategori">
-  <option selected disabled><?= $vkategori_satuan ?></option>
+  <option selected value="<?= $vkategori_satuan ?>"><?= $vkategori_satuan ?></option>
   <option value="Jumlah">Jumlah</option>
   <option value="Persentase">Persentase</option>
   <option value="Rupiah">Rupiah</option>
@@ -434,7 +434,7 @@ document.location='juknis-admin.php'
     <label for="" class="col-sm-2 col-form-label">Tipe KPI</label>
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="ttipe">
-  <option selected disabled><?= $vtipe_kpi ?></option>
+  <option selected value="<?= $vtipe_kpi ?>"><?= $vtipe_kpi ?></option>
   <option value="EXACT">EXACT</option>
   <option value="PROXY">PROXY</option>
   <option value="ACTIVITY">ACTIVITY</option>
@@ -446,7 +446,7 @@ document.location='juknis-admin.php'
     <label for="" class="col-sm-2 col-form-label">Tipe Target</label>
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="ttarget">
-  <option selected disabled><?= $vtipe_target ?></option>
+  <option selected value="<?= $vtipe_target ?>"><?= $vtipe_target ?></option>
   <option value="Akumulatif">Akumulatif</option>
   <option value="Non Akumulatif">Non Akumulatif</option>
 </select>
@@ -457,7 +457,7 @@ document.location='juknis-admin.php'
     <label for="" class="col-sm-2 col-form-label">Frekuensi</label>
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tfrekuensi">
-  <option selected disabled><?= $vfrekuensi ?></option>
+  <option selected value="<?= $vfrekuensi ?>"><?= $vfrekuensi ?></option>
   <option value="Bulanan">Bulanan</option>
   <option value="Triwulan">Triwulan</option>
   <option value="Semesteran">Semesteran</option>
@@ -469,7 +469,7 @@ document.location='juknis-admin.php'
     <label for="" class="col-sm-2 col-form-label">Polaritas</label>
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tpolaritas">
-  <option selected disabled><?= $vpolaritas ?></option>
+  <option selected value="<?= $vpolaritas ?>"><?= $vpolaritas ?></option>
   <option value="POSITIF">POSITIF</option>
   <option value="NEGATIF">NEGATIF</option>
   <option value="RANGE">RANGE</option>
