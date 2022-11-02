@@ -210,7 +210,7 @@ session_start();
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
-                  <td><?= $data['id_data'] ?></td>
+                  <td><?= $no++ ?></td>
                   <?php
                     if ($data['usulan_deskripsi'] == '') {
                         echo '<td>'. $data['deskripsi']. '</td>';

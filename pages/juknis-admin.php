@@ -218,7 +218,7 @@ session_start();
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
-                  <td><?= $data['id_data'] ?></td>
+                  <td><?= $no++?></td>
                   <?php 
                     if ($data['usulan_deskripsi'] == '') {
                         echo '<td>'. $data['deskripsi']. '</td>';
@@ -248,7 +248,7 @@ session_start();
                   <?php endwhile; ?>
                   </tbody>
                 </table>
-                <a href="export.php"><button class="btn btn-success">Export</button></a>
+                <a href="export-admin.php"><button class="btn btn-success">Export</button></a>
               </div>
               <!-- /.card-body -->
             </div>
