@@ -63,7 +63,7 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="guest.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -155,7 +155,7 @@ session_start();
                with font-awesome or any other icon font library -->
 
                <li class="nav-item menu-open">
-            <a href="admin.php" class="nav-link">
+            <a href="guest.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
@@ -163,18 +163,13 @@ session_start();
             </a>
           </li>
            <li class="nav-item">
-            <a href="juknis-superadmin.php" class="nav-link">
+            <a href="juknis-guest.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>Juknis</p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="user-superadmin.php" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>User</p>
-            </a>
-          </li>
+
 
         </ul>
       </nav>
@@ -214,27 +209,7 @@ session_start();
         <div class="row">
 
 
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <?php
-                require '../config.php';
-                $query = "SELECT id FROM tb_login ORDER BY id";
-                $query_run = mysqli_query($koneksi, $query);
 
-                $row = mysqli_num_rows($query_run);
-                echo '<h3> '.$row. '<h3>';
-                ?>
-
-                <p>Pengguna</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -254,7 +229,7 @@ session_start();
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="juknis-guest.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
