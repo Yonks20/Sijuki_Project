@@ -111,11 +111,11 @@ session_start();
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php 
+          <a href="#" class="d-block"> <?php
          echo $_SESSION['username'];
           ?></a>
         </div>
-      
+
       </div>
 
       <!-- SidebarSearch Form -->
@@ -137,19 +137,28 @@ session_start();
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-            <a href="admin.php" class="nav-link">
+            <a href="superadmin.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
               </p>
             </a>
-          </li>            
+          </li>
            <li class="nav-item  menu-open">
-            <a href="juknis-admin.php" class="nav-link">
+            <a href="juknis-superadmin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>Juknis</p>
             </a>
           </li>
+
+          </li>
+           <li class="nav-item">
+            <a href="user-superadmin.php" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>User</p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -181,9 +190,9 @@ session_start();
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
+
             <div class="card">
-        
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -201,7 +210,7 @@ session_start();
                   </thead>
                   <tbody>
                   <?php
-            
+
             //persiapan menampilkan data
             $no = 1;
           $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
@@ -209,7 +218,7 @@ session_start();
           ?>
                   <tr>
                   <td><?= $data['id_data'] ?></td>
-                  <?php 
+                  <?php
                     if ($data['usulan_deskripsi'] == '') {
                         echo '<td>'. $data['deskripsi']. '</td>';
                     }else{
@@ -225,7 +234,7 @@ session_start();
                   <?php endwhile; ?>
                   </tbody>
                 </table>
-        
+
               </div>
               <!-- /.card-body -->
             </div>
