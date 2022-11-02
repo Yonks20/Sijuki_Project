@@ -43,7 +43,7 @@ if($cek > 0){
 		$_SESSION['username'] = $username;
 		$_SESSION['level'] = "user";
 		// alihkan ke halaman dashboard pengurus
-		header("location:user.php");
+		header("location:pages/guest.php");
 
 	}else{
 		// alihkan ke halaman login kembali
