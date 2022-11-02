@@ -182,7 +182,7 @@ session_start();
             <h1>Data Karyawan</h1>
           </div>
           <div class="col-sm-6">
-          <a href="create-admin.php" class="btn-create">New Data+</a>
+          <a href="create-superadmin.php" class="btn-create">New Data+</a>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
               <li class="breadcrumb-item active">Juknis</li>

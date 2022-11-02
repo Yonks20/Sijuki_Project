@@ -200,7 +200,7 @@ session_start();
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Title</h3>
+          <h3 class="card-title">Daftarkan Akun </h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -212,13 +212,78 @@ session_start();
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+
+          <form action="connect.php" method="post">
+<br>
+        <div class="row mb-3">
+    <label for="nama" class="col-sm-2 col-form-label nama" name="nama">Nama</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="nama">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="username" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control username" name="username">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control password" name="password">
+    </div>
+  </div>
+
+  <div class="checkbox">
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Level</label>
+    <div class="col-sm-10">
+      <label><input type="checkbox" value="superadmin" name="level">Superadmin</label><br>
+      <label><input type="checkbox" value="admin" name="level">Admin</label><br>
+      <label><input type="checkbox" value="user" name="level">User</label>
+</div>
+</div>
+</div>
+
+  <div class="text-center">
+  <input type="submit" class="btn btn-primary btn-register">
+</form>
+<br>
+<br>
+
+
         </div>
+
+        <table class="table table-striped table:hover table-bordered">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Level</th>
+            </tr>
+            <?php
+              //persiapan menampilkan data
+            $user = mysqli_query($koneksi, "SELECT * FROM tb_login order by id asc");
+            while($account = mysqli_fetch_array($user)) :
+            ?>
+
+            <tr>
+              <td><?= $account['id'] ?></td>
+              <td><?= $account['nama'] ?></td>
+              <td><?= $account['username'] ?></td>
+              <td>Password Encryption...</td>
+              <td><?= $account['level'] ?></td>
+            </tr>
+            <?php endwhile; ?>
+
+
+      </table>
+
         <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
+              <!-- /.card-footer-->
       </div>
       <!-- /.card -->
     </div>
