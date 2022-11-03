@@ -276,8 +276,15 @@ session_start();
 
           <li class="nav-item">
             <a href="user-superadmin.php" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>User</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="jabatan-superadmin.php" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Jabatan</p>
             </a>
           </li>
 
