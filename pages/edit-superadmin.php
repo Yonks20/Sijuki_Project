@@ -63,13 +63,13 @@ foreach($result as $row)
           if($edit){
             echo "<script>
               alert('Data berhasil edit!');
-              document.location='juknis-admin.php'
+              document.location='juknis-superadmin.php'
             </script>";
           }
           else{
             echo "<script>
               alert('Data gagal edit!');
-              document.location='juknis-admin.php'
+              document.location='juknis-superadmin.php'
             </script>";
           }
     }
@@ -270,7 +270,8 @@ document.location='juknis-admin.php'
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
           <a href="keluar.php" class="dropdown-item">
-          <i class="fa-solid fa-door-open">logout</i>
+          <i class="fa-solid fa-door-open"></i>
+          logout
 
           </a>
       </li>

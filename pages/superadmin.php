@@ -105,8 +105,8 @@ session_start();
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
           <a href="keluar.php" class="dropdown-item">
-          <i class="fa-solid fa-door-open">logout</i>
-
+          <i class="fa-solid fa-right-from-bracket"></i>
+logout
           </a>
       </li>
     </ul>
@@ -171,8 +171,14 @@ session_start();
 
           <li class="nav-item">
             <a href="user-superadmin.php" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>User</p>
+            <i class="nav-icon fas fa-users"></i>              <p>User</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="jabatan-superadmin.php" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Jabatan</p>
             </a>
           </li>
 
