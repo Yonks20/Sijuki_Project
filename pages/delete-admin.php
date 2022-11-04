@@ -141,10 +141,10 @@ document.location='admin.php'
       //tampilkan data yang akan diedit
 
       
-      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
+      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
     
       $data = mysqli_fetch_array($tampil);
-      $hapus = mysqli_query($koneksi, "DELETE FROM tb_data WHERE id_data = '$_GET[id]'");
+      $hapus = mysqli_query($koneksi, "DELETE FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
       //jika hapus sukses
       if($hapus){
         echo "<script>

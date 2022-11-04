@@ -38,40 +38,103 @@ foreach($result as $row)
 
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
-    //Data akan disimpan
-    $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
-                                      VALUE ( '$_POST[tdeskripsi]',
-                                              '$_POST[tusulan_deskripsi]', 
-                                              '$_POST[tdefinisi]',
-                                              '$_POST[ttujuan]', 
-                                              '$_POST[tsatuan]', 
-                                              '$_POST[tkategori]', 
-                                              '$_POST[tformula]', 
-                                              '$_POST[tsumber]', 
-                                              '$_POST[ttipe]',
-                                              '$_POST[ttarget]', 
-                                              '$_POST[tfrekuensi]', 
-                                              '$_POST[tpolaritas]', 
-                                              '$_POST[tdivisi]', 
-                                              '$_POST[tpemilik]', 
-                                              '$_POST[teviden]', 
-                                              '$_POST[tsyarat]', 
-                                              '$_POST[tparent]')
-                                  ");
-    
-    //uji jika simpan data sukses
-    if($simpan){
-      echo "<script>
-      alert('data berhasil disimpan!');
-      document.location='superadmin.php';
-      </script>";
-    } else{
-      echo "<script>
-        alert('Simpan data gagal');
-        document.location='superadmin.php'
-      </script>";
+    if(isset($_GET['hal']) == "edit"){
+
+          $edit = mysqli_query($koneksi, "UPDATE tb_data2 SET
+          deskripsi2 = '$_POST[tdeskripsi]',
+          usulan_deskripsi2 = '$_POST[tusulan_deskripsi]',
+          definisi2 = '$_POST[tdefinisi]',
+          tujuan2 = '$_POST[ttujuan]',
+          satuan2 = '$_POST[tsatuan]',
+          kategori_satuan2 = '$_POST[tkategori]',
+          formula2 = '$_POST[tformula]',
+          sumber_target2 = '$_POST[tsumber]',
+          tipe_kpi2 = '$_POST[ttipe]',
+          tipe_target2 = '$_POST[ttarget]',
+          frekuensi2 = '$_POST[tfrekuensi]',
+          polaritas2 = '$_POST[tpolaritas]', 
+          divisi2 = '$_POST[tdivisi]', 
+          pemilik2 = '$_POST[tpemilik]', 
+          eviden2 = '$_POST[teviden]', 
+          syarat_ketentuan2 = '$_POST[tsyarat]',
+          kpi_parent2 = '$_POST[tparent]'
+          WHERE id_data2 = '$_GET[id]'
+          ");
+
+
+          if($edit){
+            echo "<script>
+              alert('Data berhasil edit!');
+              document.location='juknis-admin.php'
+            </script>";
+          }
+          else{
+            echo "<script>
+              alert('Data gagal edit!');
+              document.location='juknis-admin.php'
+            </script>";
+          }
     }
-    $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+    //Data akan disimpan
+
+    else{
+      $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
+      VALUE ( '$_POST[tid]',
+              '$_POST[tdeskripsi]', 
+              '$_POST[tusulan_deskripsi]', 
+              '$_POST[tdefinisi]',
+              '$_POST[ttujuan]', 
+              '$_POST[tsatuan]', 
+              '$_POST[tkategori]', 
+              '$_POST[tformula]', 
+              '$_POST[tsumber]', 
+              '$_POST[ttipe]',
+              '$_POST[ttarget]', 
+              '$_POST[tfrekuensi]', 
+              '$_POST[tpolaritas]', 
+              '$_POST[tdivisi]', 
+              '$_POST[tpemilik]', 
+              '$_POST[teviden]', 
+              '$_POST[tsyarat]', 
+              '$_POST[tparent]')
+  ");
+  $simpan2 = mysqli_query($koneksi, "INSERT INTO tb_data2 (deskripsi2,definisi2,tujuan2,satuan2,kategori_satuan2,formula2,sumber_target2,tipe_kpi2,tipe_target2,frekuensi2,polaritas2,divisi2,pemilik2,eviden2,syarat_ketentuan2,kpi_parent2)
+  VALUE ( '$_POST[tdeskripsi]',
+          '$_POST[tdefinisi]',
+          '$_POST[ttujuan]', 
+          '$_POST[tsatuan]', 
+          '$_POST[tkategori]', 
+          '$_POST[tformula]', 
+          '$_POST[tsumber]', 
+          '$_POST[ttipe]',
+          '$_POST[ttarget]', 
+          '$_POST[tfrekuensi]', 
+          '$_POST[tpolaritas]', 
+          '$_POST[tdivisi]', 
+          '$_POST[tpemilik]', 
+          '$_POST[teviden]', 
+          '$_POST[tsyarat]', 
+          '$_POST[tparent]')
+  ");                           
+  
+
+
+
+//uji jika simpan data sukses
+if($simpan){
+echo "<script>
+alert('data berhasil disimpan!');
+document.location='juknis-admin.php';
+</script>";
+} else{
+echo "<script>
+alert('Simpan data gagal');
+document.location='juknis-admin.php'
+</script>";
+}
+    }
+    
+    $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
   }
 
@@ -95,38 +158,80 @@ foreach($result as $row)
   $vsyarat_ketentuan = "";
   $vkpi_parent = "";
 
+  $vid2 = "";
+  $vdeskripsi2 = "";
+  $vusulan_deskripsi2 = "";
+  $vdefinisi2 = "";
+  $vtujuan2 = "";
+  $vsatuan2 = "";
+  $vkategori_satuan2 = "";
+  $vformula2 = "";
+  $vsumber_target2 = "";
+  $vtipe_kpi2 = "";
+  $vtipe_target2 ="";
+  $vfrekuensi2 = "";
+  $vpolaritas2 ="";
+  $vdivisi2 = "";
+  $vpemilik2 = "";
+  $veviden2 = "";
+  $vsyarat_ketentuan2 = "";
+  $vkpi_parent2 = "";
 
 
   //jika tombol edit diedit/hapus
   if(isset($_GET['hal'])){
     //jika edit data
-    if($_GET['hal'] == "view"){
+    if($_GET['hal'] == "edit"){
       //tampilkan data yang akan diedit
 
       
-      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
+      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
+      $tampil2=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
     
       $data = mysqli_fetch_array($tampil);
+      $data2 = mysqli_fetch_array($tampil2);
       if($data){
         //jika data ditemukan, maka data ditampung kedalam variabel
-        $vid = $data['id_data2'];
-        $vdeskripsi = $data['deskripsi2'];
-        $vusulan_deskripsi = $data['usulan_deskripsi2'];
-        $vdefinisi = $data['definisi2'];
-        $vtujuan = $data['tujuan2'];
-        $vsatuan = $data['satuan2'];
-        $vkategori_satuan = $data['kategori_satuan2'];
-        $vformula = $data['formula2'];
-        $vsumber_target = $data['sumber_target2'];
-        $vtipe_kpi = $data['tipe_kpi2'];
-        $vtipe_target = $data['tipe_target2'];
-        $vfrekuensi = $data['frekuensi2'];
-        $vpolaritas = $data['polaritas2'];
-        $vdivisi = $data['divisi2'];
-        $vpemilik = $data['pemilik2'];
-        $veviden = $data['eviden2'];
-        $vsyarat_ketentuan = $data['syarat_ketentuan2'];
-        $vkpi_parent = $data['kpi_parent2'];
+        $vid = $data['id_data'];
+        $vdeskripsi = $data['deskripsi'];
+        $vusulan_deskripsi = $data['usulan_deskripsi'];
+        $vdefinisi = $data['definisi'];
+        $vtujuan = $data['tujuan'];
+        $vsatuan = $data['satuan'];
+        $vkategori_satuan = $data['kategori_satuan'];
+        $vformula = $data['formula'];
+        $vsumber_target = $data['sumber_target'];
+        $vtipe_kpi = $data['tipe_kpi'];
+        $vtipe_target = $data['tipe_target'];
+        $vfrekuensi = $data['frekuensi'];
+        $vpolaritas = $data['polaritas'];
+        $vdivisi = $data['divisi'];
+        $vpemilik = $data['pemilik'];
+        $veviden = $data['eviden'];
+        $vsyarat_ketentuan = $data['syarat_ketentuan'];
+        $vkpi_parent = $data['kpi_parent'];
+      }
+
+      else if($data2){
+        //jika data ditemukan, maka data ditampung kedalam variabel
+        $vid2 = $data2['id_data2'];
+        $vdeskripsi2 = $data2['deskripsi2'];
+        $vusulan_deskripsi2 = $data2['usulan_deskripsi2'];
+        $vdefinisi2 = $data2['definisi2'];
+        $vtujuan2 = $data2['tujuan2'];
+        $vsatuan2 = $data2['satuan2'];
+        $vkategori_satuan2 = $data2['kategori_satuan2'];
+        $vformula2 = $data2['formula2'];
+        $vsumber_target2 = $data2['sumber_target2'];
+        $vtipe_kpi2 = $data2['tipe_kpi2'];
+        $vtipe_target2 = $data2['tipe_target2'];
+        $vfrekuensi2 = $data2['frekuensi2'];
+        $vpolaritas2 = $data2['polaritas2'];
+        $vdivisi2 = $data2['divisi2'];
+        $vpemilik2 = $data2['pemilik2'];
+        $veviden2 = $data2['eviden2'];
+        $vsyarat_ketentuan2 = $data2['syarat_ketentuan2'];
+        $vkpi_parent2 = $data2['kpi_parent2'];
       }
     }
   }
@@ -313,87 +418,94 @@ session_start();
               <table class="table table-striped table:hover table-bordered">
             <tr>
               <th align="left">Deskripsi</th>
-              <td><?= $data['deskripsi2'] ?></td>
+              
             </tr>
 
             <tr>
               <th align="left">Usulan Deskripsi</th>
-              <td><?= $data['usulan_deskripsi2'] ?></td>
+              <td><?= $data['usulan_deskripsi'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Definisi</th>
-              <td><?= $data['definisi2'] ?></td>
+              <?php
+              if($vdefinisi != $vdefinisi2){
+                echo '<td>'.'<button class="btn btn-success">'.'Data sudah diubah'.'</button>'.'</td>';
+              }
+              else{
+                echo '<td>'.'<button class="btn btn-warning">'.'Data belum diubah'.'</button>'.'</td>';
+              }
+              ?>
             </tr>
 
             <tr>
               <th align="left">Tujuan</th>
-              <td><?= $data['tujuan2'] ?></td>
+              <td><?= $data['tujuan'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Satuan</th>
-              <td><?= $data['satuan2'] ?></td>
+              <td><?= $data['satuan'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Kategori Satuan</th>
-              <td><?= $data['kategori_satuan2'] ?></td>
+              <td><?= $data['kategori_satuan'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Formula</th>
-              <td><?= $data['formula2'] ?></td>
+              <td><?= $data['formula'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Sumber Target</th>
-              <td><?= $data['sumber_target2'] ?></td>
+              <td><?= $data['sumber_target'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Tipe KPI</th>
-              <td><?= $data['tipe_kpi2'] ?></td>
+              <td><?= $data['tipe_kpi'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Tipe Target</th>
-              <td><?= $data['tipe_target2'] ?></td>
+              <td><?= $data['tipe_target'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Frekuensi</th>
-              <td><?= $data['frekuensi2'] ?></td>
+              <td><?= $data['frekuensi'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Polaritas</th>
-              <td><?= $data['polaritas2'] ?></td>
+              <td><?= $data['polaritas'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Divisi</th>
-              <td><?= $data['divisi2'] ?></td>
+              <td><?= $data['divisi'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Pemilik</th>
-              <td><?= $data['pemilik2'] ?></td>
+              <td><?= $data['pemilik'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Eviden</th>
-              <td><?= $data['eviden2'] ?></td>
+              <td><?= $data['eviden'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Syarat & Ketentuan</th>
-              <td><?= $data['syarat_ketentuan2'] ?></td>
+              <td><?= $data['syarat_ketentuan'] ?></td>
             </tr>
 
             <tr>
               <th align="left">KPI Parent</th>
-              <td><?= $data['kpi_parent2'] ?></td>
+              <td><?= $data['kpi_parent'] ?></td>
             </tr>
 
 
@@ -402,7 +514,7 @@ session_start();
             
               //persiapan menampilkan data
               $no = 1;
-            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil)) :
             ?>
             <?php endwhile; ?>

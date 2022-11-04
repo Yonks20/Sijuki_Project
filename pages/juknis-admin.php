@@ -214,36 +214,36 @@ session_start();
             
             //persiapan menampilkan data
             $no = 1;
-          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
                   <td><?= $no++?></td>
                   <?php 
-                    if ($data['usulan_deskripsi'] == '') {
-                        echo '<td>'. $data['deskripsi']. '</td>';
+                    if ($data['usulan_deskripsi2'] == '') {
+                        echo '<td>'. $data['deskripsi2']. '</td>';
                     }else{
-                        echo '<td>'. $data['usulan_deskripsi']. '</td>';
+                        echo '<td>'. $data['usulan_deskripsi2']. '</td>';
                     }
                     ?>
-                  <td><?= $data['satuan'] ?></td>
-                  <td><?= $data['kategori_satuan'] ?></td>
-                  <td><?= $data['tipe_kpi'] ?></td>
-                  <td><?= $data['tipe_target'] ?></td>
-                  <td><?= $data['polaritas'] ?></td>
-                  <td><?= $data['divisi'] ?></td>
+                  <td><?= $data['satuan2'] ?></td>
+                  <td><?= $data['kategori_satuan2'] ?></td>
+                  <td><?= $data['tipe_kpi2'] ?></td>
+                  <td><?= $data['tipe_target2'] ?></td>
+                  <td><?= $data['polaritas2'] ?></td>
+                  <td><?= $data['divisi2'] ?></td>
                   <?php 
 
-                  if ($data['usulan_deskripsi'] == '') {
+                  if ($data['usulan_deskripsi2'] == '') {
                       echo '<td>'.'<button class="btn btn-warning">'. 'Data belum diubah' . '</button>'.'</td>';
                   }else{
                     echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
                   }
                   ?>
                   <td>
-                    <a href="view-admin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-success">View</a>
-                    <a href="edit-admin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
-                    <a href="delete-admin.php?hal=delete&id=<?=$data['id_data']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
+                    <a href="view-admin.php?hal=view&id=<?=$data['id_data2']?>" class="btn btn-success">View</a>
+                    <a href="edit-admin.php?hal=edit&id=<?=$data['id_data2']?>" class="btn btn-warning">Edit</a>
+                    <a href="delete-admin.php?hal=delete&id=<?=$data['id_data2']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
                   </td>
                   <?php endwhile; ?>
                   </tbody>
