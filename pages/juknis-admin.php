@@ -215,6 +215,7 @@ session_start();
             //persiapan menampilkan data
             $no = 1;
           $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+          $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
@@ -234,10 +235,10 @@ session_start();
                   <td><?= $data['divisi2'] ?></td>
                   <?php 
 
-                  if ($data['usulan_deskripsi2'] == '') {
-                      echo '<td>'.'<button class="btn btn-warning">'. 'Data belum diubah' . '</button>'.'</td>';
+                  if ($data['is_updated'] == '') {
+                      echo '<td>'.'<p>' . 'Data belum diubah' . '</p>'.'</td>';
                   }else{
-                    echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    echo '<td>'.'<p class="text-success">' . '<a href="log-data.php?hash='.$data['is_updated'].'" class="text-success">' . 'Data sudah diubah' . '</a>' .'</p>'.'</td>';
                   }
                   ?>
                   <td>

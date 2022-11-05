@@ -266,6 +266,12 @@ session_start();
 	if($_SESSION['level']==""){
 		header("location:../login.php?pesan=gagal");
 	}
+
+
+if (empty($_GET['hash'])){
+  header("location:juknis-admin.php");
+}
+
 ?>
 
 <body class="hold-transition sidebar-mini">
@@ -416,108 +422,269 @@ session_start();
               <!-- /.card-header -->
               <div class="card-body">
               <table class="table table-striped table:hover table-bordered">
+              <?php
+            
+            //persiapan menampilkan data
+            $no = 1;
+          // $tampil = mysqli_query($koneksi, "SELECT tb_data2.*,tb_data.* FROM tb_data2,tb_data LIMIT 10");
+
+          $hash = $_GET['hash'];
+
+          $tampil = mysqli_query($koneksi, "SELECT tb_data.*,tb_data2.* FROM tb_data INNER JOIN tb_data2 ON tb_data.is_updated = tb_data2.is_updated WHERE tb_data.is_updated= '$hash' ");
+          // Percepatan pemenuhan FTK Struktural SPV Dasar yang kosong pada UI kewenangan
+          // Percepatan pemenuhan FTK Struktural SPV Dasar yang kosong pada UI kewenangan
+          // var_dump($tampil);
+          // die;
+
+          // $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+          
+          while( $data = mysqli_fetch_array($tampil)):?>
             <tr>
               <th align="left">Deskripsi</th>
-              
+              <td><?= $data['deskripsi'] ?></td>
+              <td><?= $data['deskripsi2'] ?></td>
+              <?php 
+                    if ($data['deskripsi'] == $data['deskripsi2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Usulan Deskripsi</th>
               <td><?= $data['usulan_deskripsi'] ?></td>
+              <td><?= $data['usulan_deskripsi2'] ?></td>
+              <?php 
+                    if ($data['satuan'] == $data['satuan2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
-
+            
             <tr>
               <th align="left">Definisi</th>
-              <?php
-              if($vdefinisi != $vdefinisi2){
-                echo '<td>'.'<button class="btn btn-success">'.'Data sudah diubah'.'</button>'.'</td>';
-              }
-              else{
-                echo '<td>'.'<button class="btn btn-warning">'.'Data belum diubah'.'</button>'.'</td>';
-              }
-              ?>
+              <td><?= $data['definisi'] ?></td>
+              <td><?= $data['definisi2'] ?></td>
+              <?php 
+                    if ($data['definisi'] == $data['definisi2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Tujuan</th>
               <td><?= $data['tujuan'] ?></td>
+              <td><?= $data['tujuan2'] ?></td>
+              <?php 
+                    if ($data['tujuan'] == $data['tujuan2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Satuan</th>
               <td><?= $data['satuan'] ?></td>
+              <td><?= $data['satuan2'] ?></td>
+              <?php 
+                    if ($data['satuan'] == $data['satuan2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Kategori Satuan</th>
               <td><?= $data['kategori_satuan'] ?></td>
+              <td><?= $data['kategori_satuan2'] ?></td>
+              <?php 
+                    if ($data['kategori_satuan'] == $data['kategori_satuan2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Formula</th>
               <td><?= $data['formula'] ?></td>
+              <td><?= $data['formula2'] ?></td>
+              <?php 
+                    if ($data['formula'] == $data['formula2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Sumber Target</th>
               <td><?= $data['sumber_target'] ?></td>
+              <td><?= $data['sumber_target2'] ?></td>
+              <?php 
+                    if ($data['sumber_target'] == $data['sumber_target2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Tipe KPI</th>
               <td><?= $data['tipe_kpi'] ?></td>
+              <td><?= $data['tipe_kpi2'] ?></td>
+              <?php 
+                    if ($data['tipe_kpi'] == $data['tipe_kpi2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Tipe Target</th>
               <td><?= $data['tipe_target'] ?></td>
+              <td><?= $data['tipe_target2'] ?></td>
+              <?php 
+                    if ($data['tipe_target'] == $data['tipe_target2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Frekuensi</th>
               <td><?= $data['frekuensi'] ?></td>
+              <td><?= $data['frekuensi2'] ?></td>
+              <?php 
+              
+                    if ($data['frekuensi'] == $data['frekuensi2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Polaritas</th>
               <td><?= $data['polaritas'] ?></td>
+              <td><?= $data['polaritas2'] ?></td>
+              <?php 
+              
+                    if ($data['polaritas'] == $data['polaritas2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
-              <th align="left">Divisi</th>
+              <th align="left">Jabatan</th>
               <td><?= $data['divisi'] ?></td>
+              <td><?= $data['divisi2'] ?></td>
+              <?php 
+              
+                    if ($data['divisi'] == $data['divisi2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Pemilik</th>
               <td><?= $data['pemilik'] ?></td>
+              <td><?= $data['pemilik2'] ?></td>
+              <?php 
+              
+                    if ($data['pemilik'] == $data['pemilik2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Eviden</th>
               <td><?= $data['eviden'] ?></td>
+              <td><?= $data['eviden2'] ?></td>
+              <?php 
+              
+                    if ($data['eviden'] == $data['eviden2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">Syarat & Ketentuan</th>
               <td><?= $data['syarat_ketentuan'] ?></td>
+              <td><?= $data['syarat_ketentuan2'] ?></td>
+              <?php 
+              
+                    if ($data['syarat_ketentuan'] == $data['syarat_ketentuan2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
             <tr>
               <th align="left">KPI Parent</th>
               <td><?= $data['kpi_parent'] ?></td>
+              <td><?= $data['kpi_parent2'] ?></td>
+              <?php 
+              
+                    if ($data['kpi_parent'] == $data['kpi_parent2']) {
+                      echo '<td>'.'<button class="btn btn-warning">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                      
+                    }else{
+                      echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    }
+                    ?>
             </tr>
 
-
-
-            <?php
-            
-              //persiapan menampilkan data
-              $no = 1;
-            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
-            while($data = mysqli_fetch_array($tampil)) :
-            ?>
-            <?php endwhile; ?>
+           <?php endwhile; ?>
 
             </table>
            

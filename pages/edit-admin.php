@@ -39,11 +39,13 @@ foreach($result as $row)
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
     if(isset($_GET['hal']) == "edit"){
+      $hash = md5(time());
+      $tujuan2 = htmlspecialchars($_POST['ttujuan']);
       $edit = mysqli_query($koneksi, "UPDATE tb_data2 SET
                                               deskripsi2 = '$_POST[tdeskripsi]',
                                               usulan_deskripsi2 = '$_POST[tusulan_deskripsi]',
                                               definisi2 = '$_POST[tdefinisi]',
-                                              tujuan2 = '$_POST[ttujuan]',
+                                              tujuan2 = '$tujuan2',
                                               satuan2 = '$_POST[tsatuan]',
                                               kategori_satuan2 = '$_POST[tkategori]',
                                               formula2 = '$_POST[tformula]',
@@ -56,9 +58,11 @@ foreach($result as $row)
                                               pemilik2 = '$_POST[tpemilik]', 
                                               eviden2 = '$_POST[teviden]', 
                                               syarat_ketentuan2 = '$_POST[tsyarat]',
-                                              kpi_parent2 = '$_POST[tparent]'
+                                              kpi_parent2 = '$_POST[tparent]',
+                                              is_updated = '$hash'
                                               WHERE id_data2 = '$_GET[id]'
           ");
+          $edit2 = mysqli_query($koneksi, "UPDATE tb_data SET is_updated = '$hash' WHERE id_data = $_GET[id] ");
 
           if($edit){
             echo "<script>
@@ -646,6 +650,17 @@ var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
   CKEDITOR.replace('teviden');
   CKEDITOR.replace('tsyarat');
   CKEDITOR.replace('tparent');
+</script>
+
+<script type="text/javascript">
+$(function() {
+    $('#your_textarea').ckeditor({
+        toolbar: 'Full',
+        enterMode : CKEDITOR.ENTER_BR,
+        shiftEnterMode: CKEDITOR.ENTER_P
+    });
+});
+CKEDITOR.config.autoParagraph = false;
 </script>
 </body>
 </html>

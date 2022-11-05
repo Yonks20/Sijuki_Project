@@ -145,8 +145,9 @@ document.location='admin.php'
     
       $data = mysqli_fetch_array($tampil);
       $hapus = mysqli_query($koneksi, "DELETE FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
+      $hapus2 = mysqli_query($koneksi, "DELETE FROM tb_data WHERE id_data = '$_GET[id]'");
       //jika hapus sukses
-      if($hapus){
+      if($hapus && $hapus2){
         echo "<script>
         alert('data berhasil dihapus!');
         document.location='juknis-admin.php';

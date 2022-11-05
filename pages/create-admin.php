@@ -52,10 +52,11 @@ foreach($resultt as $row)
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
     //Data akan disimpan
+    $tujuan2 = htmlspecialchars($_POST['ttujuan']);
     $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
                                       VALUE ( '$_POST[tdeskripsi]',
                                               '$_POST[tdefinisi]',
-                                              '$_POST[ttujuan]', 
+                                              '$tujuan2', 
                                               '$_POST[tsatuan]', 
                                               '$_POST[tkategori]', 
                                               '$_POST[tformula]', 
@@ -67,7 +68,7 @@ foreach($resultt as $row)
                                               '$_POST[tdivisi]', 
                                               '$_POST[tpemilik]', 
                                               '$_POST[teviden]', 
-                                              '$_POST[tsyarat]', 
+                                              '$_POST[tsyarat]',
                                               '$_POST[tparent]')
                                   ");
 

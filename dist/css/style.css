@@ -17,3 +17,7 @@
 .dropdown-item {
   width: 10px;
 }
+
+.text-success {
+  color: green !important;
+}
