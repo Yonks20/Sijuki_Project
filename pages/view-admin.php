@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //index.php
 
@@ -6,7 +6,7 @@
 $connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
 
 $query = "
-SELECT divisi FROM tb_divisi 
+SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
@@ -41,24 +41,24 @@ foreach($result as $row)
     //Data akan disimpan
     $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
                                       VALUE ( '$_POST[tdeskripsi]',
-                                              '$_POST[tusulan_deskripsi]', 
+                                              '$_POST[tusulan_deskripsi]',
                                               '$_POST[tdefinisi]',
-                                              '$_POST[ttujuan]', 
-                                              '$_POST[tsatuan]', 
-                                              '$_POST[tkategori]', 
-                                              '$_POST[tformula]', 
-                                              '$_POST[tsumber]', 
+                                              '$_POST[ttujuan]',
+                                              '$_POST[tsatuan]',
+                                              '$_POST[tkategori]',
+                                              '$_POST[tformula]',
+                                              '$_POST[tsumber]',
                                               '$_POST[ttipe]',
-                                              '$_POST[ttarget]', 
-                                              '$_POST[tfrekuensi]', 
-                                              '$_POST[tpolaritas]', 
-                                              '$_POST[tdivisi]', 
-                                              '$_POST[tpemilik]', 
-                                              '$_POST[teviden]', 
-                                              '$_POST[tsyarat]', 
+                                              '$_POST[ttarget]',
+                                              '$_POST[tfrekuensi]',
+                                              '$_POST[tpolaritas]',
+                                              '$_POST[tdivisi]',
+                                              '$_POST[tpemilik]',
+                                              '$_POST[teviden]',
+                                              '$_POST[tsyarat]',
                                               '$_POST[tparent]')
                                   ");
-    
+
     //uji jika simpan data sukses
     if($simpan){
       echo "<script>
@@ -103,9 +103,9 @@ foreach($result as $row)
     if($_GET['hal'] == "view"){
       //tampilkan data yang akan diedit
 
-      
+
       $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
-    
+
       $data = mysqli_fetch_array($tampil);
       if($data){
         //jika data ditemukan, maka data ditampung kedalam variabel
@@ -131,7 +131,7 @@ foreach($result as $row)
     }
   }
 
-  
+
 ?>
 
 <!DOCTYPE html>
@@ -235,7 +235,7 @@ session_start();
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php 
+          <a href="#" class="d-block"> <?php
          echo $_SESSION['username'];
           ?></a>
         </div>
@@ -266,7 +266,7 @@ session_start();
                 Home
               </p>
             </a>
-          </li>            
+          </li>
            <li class="nav-item  menu-open">
             <a href="juknis-admin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -305,9 +305,9 @@ session_start();
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
+
             <div class="card">
-        
+
               <!-- /.card-header -->
               <div class="card-body">
               <table class="table table-striped table:hover table-bordered">
@@ -399,7 +399,7 @@ session_start();
 
 
             <?php
-            
+
               //persiapan menampilkan data
               $no = 1;
             $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
@@ -408,7 +408,7 @@ session_start();
             <?php endwhile; ?>
 
             </table>
-           
+
      <!--Akhir input data-->
               </div>
               <!-- /.card-body -->

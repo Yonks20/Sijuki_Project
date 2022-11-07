@@ -42,9 +42,9 @@ session_start();
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
- <!-- Preloader -->
- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -55,7 +55,10 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="guest.php" class="nav-link">Home</a>
+        <a href="admin.php" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+
       </li>
     </ul>
 
@@ -83,7 +86,8 @@ session_start();
         </div>
       </li>
 
-      <!-- Messages Dropdown Menu -->
+
+      <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <?php
@@ -93,8 +97,8 @@ session_start();
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
           <a href="keluar.php" class="dropdown-item">
-          <i class="fa-solid fa-door-open">logout</i>
-
+          <i class="fa-solid fa-right-from-bracket"></i>
+logout
           </a>
       </li>
     </ul>
@@ -104,9 +108,9 @@ session_start();
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="./index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="index3.html" class="brand-link">
+      <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">SIJUKI</span>
     </a>
 
     <!-- Sidebar -->
@@ -142,7 +146,7 @@ session_start();
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-            <a href="guest.php" class="nav-link">
+            <a href="admin.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
@@ -151,7 +155,7 @@ session_start();
           </li>
 
            <li class="nav-item  menu-open">
-            <a href="juknis-guest.php" class="nav-link">
+            <a href="juknis-admin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>Juknis</p>
             </a>
@@ -174,8 +178,9 @@ session_start();
             <h1>Data Karyawan</h1>
           </div>
           <div class="col-sm-6">
+          <a href="create-admin.php" class="btn-create">New Data+</a>
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="guest.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
               <li class="breadcrumb-item active">Juknis</li>
             </ol>
           </div>
@@ -196,7 +201,7 @@ session_start();
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                  <th>ID</th>
+                  <th>#</th>
                   <th>Deskripsi KPI</th>
                   <th>Satuan KPI</th>
                   <th>Kategori Satuan</th>
@@ -204,6 +209,7 @@ session_start();
                   <th>Tipe Target</th>
                   <th>Polaritas</th>
                   <th>Jabatan Pemilik KPI</th>
+                  <th>Status</th>
                   <th>Aksi</th>
                   </tr>
                   </thead>
@@ -212,32 +218,40 @@ session_start();
 
             //persiapan menampilkan data
             $no = 1;
-          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+          $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
                   <td><?= $no++?></td>
                   <?php
-                    if ($data['usulan_deskripsi'] == '') {
-                        echo '<td>'. $data['deskripsi']. '</td>';
+                    if ($data['usulan_deskripsi2'] == '') {
+                        echo '<td>'. $data['deskripsi2']. '</td>';
                     }else{
-                        echo '<td>'. $data['usulan_deskripsi']. '</td>';
+                        echo '<td>'. $data['usulan_deskripsi2']. '</td>';
                     }
                     ?>
-                  <td><?= $data['satuan'] ?></td>
-                  <td><?= $data['kategori_satuan'] ?></td>
-                  <td><?= $data['tipe_kpi'] ?></td>
-                  <td><?= $data['tipe_target'] ?></td>
-                  <td><?= $data['polaritas'] ?></td>
-                  <td><?= $data['divisi'] ?></td>
+                  <td><?= $data['satuan2'] ?></td>
+                  <td><?= $data['kategori_satuan2'] ?></td>
+                  <td><?= $data['tipe_kpi2'] ?></td>
+                  <td><?= $data['tipe_target2'] ?></td>
+                  <td><?= $data['polaritas2'] ?></td>
+                  <td><?= $data['divisi2'] ?></td>
+                  <?php
 
+                  if ($data['usulan_deskripsi2'] == '') {
+                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                  }else{
+                    echo '<td>'. '<a href="log-data.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
+                  }
+                  ?>
                   <td>
-                    <a href="view-guest.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-success">View</a>
+                    <a href="view-admin.php?hal=view&id=<?=$data['id_data2']?>" class="btn btn-success">View</a>
                   </td>
                   <?php endwhile; ?>
                   </tbody>
                 </table>
-                <a href="export-guest.php"><button class="btn btn-success">Export</button></a>
+                <a href="export-admin.php"><button class="btn btn-success">Export</button></a>
               </div>
               <!-- /.card-body -->
             </div>

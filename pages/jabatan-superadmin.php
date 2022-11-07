@@ -232,7 +232,7 @@ logout
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">Juknis</li>
+              <li class="breadcrumb-item active">Jabatan</li>
             </ol>
           </div>
         </div>
