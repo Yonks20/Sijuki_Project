@@ -197,7 +197,7 @@ session_start();
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                  <th>ID</th>
+                  <th>#</th>
                   <th>Deskripsi KPI</th>
                   <th>Satuan KPI</th>
                   <th>Kategori Satuan</th>
@@ -235,10 +235,10 @@ session_start();
                   <td><?= $data['divisi2'] ?></td>
                   <?php 
 
-                  if ($data['is_updated'] == '') {
-                      echo '<td>'.'<p>' . 'Data belum diubah' . '</p>'.'</td>';
+                  if ($data['usulan_deskripsi2'] == '') {
+                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum'  .'</button>'.'</td>';
                   }else{
-                    echo '<td>'.'<p class="text-success">' . '<a href="log-data.php?hash='.$data['is_updated'].'" class="text-success">' . 'Data sudah diubah' . '</a>' .'</p>'.'</td>';
+                    echo '<td>'. '<a href="log-data.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
                   }
                   ?>
                   <td>
