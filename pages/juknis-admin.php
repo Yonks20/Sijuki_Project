@@ -236,7 +236,7 @@ session_start();
                   <?php 
 
                   if ($data['usulan_deskripsi2'] == '') {
-                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum'  .'</button>'.'</td>';
+                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum diubah'  .'</button>'.'</td>';
                   }else{
                     echo '<td>'. '<a href="log-data.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
                   }
