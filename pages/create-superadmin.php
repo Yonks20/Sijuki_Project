@@ -52,10 +52,11 @@ foreach($resultt as $row)
   //jika button simpan diklik
   if(isset($_POST['btn-simpan'])){
     //Data akan disimpan
+    $tujuan2 = htmlspecialchars($_POST['ttujuan']);
     $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
                                       VALUE ( '$_POST[tdeskripsi]',
                                               '$_POST[tdefinisi]',
-                                              '$_POST[ttujuan]',
+                                              '$tujuan2',
                                               '$_POST[tsatuan]',
                                               '$_POST[tkategori]',
                                               '$_POST[tformula]',
@@ -71,20 +72,41 @@ foreach($resultt as $row)
                                               '$_POST[tparent]')
                                   ");
 
+  $simpan2 = mysqli_query($koneksi, "INSERT INTO tb_data2 (deskripsi2,definisi2,tujuan2,satuan2,kategori_satuan2,formula2,sumber_target2,tipe_kpi2,tipe_target2,frekuensi2,polaritas2,divisi2,pemilik2,eviden2,syarat_ketentuan2,kpi_parent2)
+                                    VALUE ( '$_POST[tdeskripsi]',
+                                            '$_POST[tdefinisi]',
+                                            '$_POST[ttujuan]',
+                                            '$_POST[tsatuan]',
+                                            '$_POST[tkategori]',
+                                            '$_POST[tformula]',
+                                            '$_POST[tsumber]',
+                                            '$_POST[ttipe]',
+                                            '$_POST[ttarget]',
+                                            '$_POST[tfrekuensi]',
+                                            '$_POST[tpolaritas]',
+                                            '$_POST[tdivisi]',
+                                            '$_POST[tpemilik]',
+                                            '$_POST[teviden]',
+                                            '$_POST[tsyarat]',
+                                            '$_POST[tparent]')
+  ");
+
     //uji jika simpan data sukses
     if($simpan){
       echo "<script>
       alert('data berhasil disimpan!');
-      document.location='juknis-admin.php';
+      document.location='juknis-superadmin.php';
       </script>";
     } else{
       echo "<script>
         alert('Simpan data gagal');
-        document.location='juknis-admin.php'
+        document.location='juknis-superadmin.php'
       </script>";
     }
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
+    $tampil2 = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+            while($data2 = mysqli_fetch_array($tampil));
   }
 ?>
 
@@ -148,11 +170,7 @@ foreach($resultt as $row)
       <li class="nav-item d-none d-sm-inline-block">
         <a href="juknis-admin.php" class="nav-link">Juknis</a>
       </li>
-
-
     </ul>
-
-
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -252,19 +270,27 @@ foreach($resultt as $row)
             </a>
           </li>
 
-
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="user-superadmin.php" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>User</p>
+            <i class="nav-icon fas fa-users"></i>
+            <p>User</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="jabatan-superadmin.php" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Jabatan</p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -517,6 +543,16 @@ var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
   CKEDITOR.replace('teviden');
   CKEDITOR.replace('tsyarat');
   CKEDITOR.replace('tparent');
+</script>
+<script type="text/javascript">
+$(function() {
+    $('#your_textarea').ckeditor({
+        toolbar: 'Full',
+        enterMode : CKEDITOR.ENTER_BR,
+        shiftEnterMode: CKEDITOR.ENTER_P
+    });
+});
+CKEDITOR.config.autoParagraph = false;
 </script>
 </body>
 </html>

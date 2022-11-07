@@ -62,13 +62,13 @@ foreach($result as $row)
           if($edit){
             echo "<script>
               alert('Data berhasil edit!');
-              document.location='admin.php'
+              document.location='superadmin.php'
             </script>";
           }
           else{
             echo "<script>
               alert('Data gagal edit!');
-              document.location='admin.php'
+              document.location='superadmin.php'
             </script>";
           }
     }
@@ -99,12 +99,12 @@ foreach($result as $row)
 if($simpan){
 echo "<script>
 alert('data berhasil disimpan!');
-document.location='admin.php';
+document.location='superadmin.php';
 </script>";
 } else{
 echo "<script>
 alert('Simpan data gagal');
-document.location='admin.php'
+document.location='superadmin.php'
 </script>";
 }
     }
@@ -141,20 +141,21 @@ document.location='admin.php'
       //tampilkan data yang akan diedit
 
 
-      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
+      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
 
       $data = mysqli_fetch_array($tampil);
-      $hapus = mysqli_query($koneksi, "DELETE FROM tb_data WHERE id_data = '$_GET[id]'");
+      $hapus = mysqli_query($koneksi, "DELETE FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
+      $hapus2 = mysqli_query($koneksi, "DELETE FROM tb_data WHERE id_data = '$_GET[id]'");
       //jika hapus sukses
-      if($hapus){
+      if($hapus && $hapus2){
         echo "<script>
         alert('data berhasil dihapus!');
-        document.location='juknis-admin.php';
+        document.location='juknis-superadmin.php';
         </script>";
         } else{
         echo "<script>
         alert('Hapus data gagal');
-        document.location='juknis-admin.php'
+        document.location='juknis-superadmin.php'
         </script>";
         }
     }

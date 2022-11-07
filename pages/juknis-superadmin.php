@@ -55,7 +55,7 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="superadmin.php" class="nav-link">Home</a>
+        <a href="admin.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -136,7 +136,7 @@ session_start();
       </div>
 
      <!-- Sidebar Menu -->
-     <nav class="mt-2">
+    <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -190,7 +190,7 @@ session_start();
           <div class="col-sm-6">
           <a href="create-superadmin.php" class="btn-create">New Data+</a>
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="superadmin.php">Home</a></li>
               <li class="breadcrumb-item active">Juknis</li>
             </ol>
           </div>
@@ -211,7 +211,7 @@ session_start();
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                  <th>ID</th>
+                  <th>#</th>
                   <th>Deskripsi KPI</th>
                   <th>Satuan KPI</th>
                   <th>Kategori Satuan</th>
@@ -228,36 +228,37 @@ session_start();
 
             //persiapan menampilkan data
             $no = 1;
-          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
+          $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
           while($data = mysqli_fetch_array($tampil)) :
           ?>
                   <tr>
-                  <td><?= $data['id_data'] ?></td>
+                  <td><?= $no++?></td>
                   <?php
-                    if ($data['usulan_deskripsi'] == '') {
-                        echo '<td>'. $data['deskripsi']. '</td>';
+                    if ($data['usulan_deskripsi2'] == '') {
+                        echo '<td>'. $data['deskripsi2']. '</td>';
                     }else{
-                        echo '<td>'. $data['usulan_deskripsi']. '</td>';
+                        echo '<td>'. $data['usulan_deskripsi2']. '</td>';
                     }
                     ?>
-                  <td><?= $data['satuan'] ?></td>
-                  <td><?= $data['kategori_satuan'] ?></td>
-                  <td><?= $data['tipe_kpi'] ?></td>
-                  <td><?= $data['tipe_target'] ?></td>
-                  <td><?= $data['polaritas'] ?></td>
-                  <td><?= $data['divisi'] ?></td>
+                  <td><?= $data['satuan2'] ?></td>
+                  <td><?= $data['kategori_satuan2'] ?></td>
+                  <td><?= $data['tipe_kpi2'] ?></td>
+                  <td><?= $data['tipe_target2'] ?></td>
+                  <td><?= $data['polaritas2'] ?></td>
+                  <td><?= $data['divisi2'] ?></td>
                   <?php
 
-                  if ($data['usulan_deskripsi'] == '') {
-                      echo '<td>'.'<button class="btn btn-warning">'. 'Data belum diubah' . '</button>'.'</td>';
+                  if ($data['usulan_deskripsi2'] == '') {
+                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum diubah'  .'</button>'.'</td>';
                   }else{
-                    echo '<td>'.'<button class="btn btn-success">'. 'Data sudah diubah' . '</button>'.'</td>';
+                    echo '<td>'. '<a href="log-data-super.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
                   }
                   ?>
                   <td>
-                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data']?>" class="btn btn-success">View</a>
-                    <a href="edit-superadmin.php?hal=edit&id=<?=$data['id_data']?>" class="btn btn-warning">Edit</a>
-                    <a href="delete-superadmin.php?hal=delete&id=<?=$data['id_data']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
+                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data2']?>" class="btn btn-success">View</a>
+                    <a href="edit-superadmin.php?hal=edit&id=<?=$data['id_data2']?>" class="btn btn-warning">Edit</a>
+                    <a href="delete-superadmin.php?hal=delete&id=<?=$data['id_data2']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
                   </td>
                   <?php endwhile; ?>
                   </tbody>
