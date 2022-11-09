@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-12">
         <h1>Selamat datang di For-Pi</h1>
-        <a href="#" class="btn btn-brand" > Login </a>
+        <a href="../login.php" class="btn btn-primary" > Login </a>
       </div>
     </div>
   </div>
