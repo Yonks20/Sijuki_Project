@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //index.php
 
@@ -6,7 +6,7 @@
 $connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
 
 $query = "
-SELECT divisi FROM tb_divisi 
+SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
@@ -52,10 +52,10 @@ foreach($result as $row)
           tipe_kpi2 = '$_POST[ttipe]',
           tipe_target2 = '$_POST[ttarget]',
           frekuensi2 = '$_POST[tfrekuensi]',
-          polaritas2 = '$_POST[tpolaritas]', 
-          divisi2 = '$_POST[tdivisi]', 
-          pemilik2 = '$_POST[tpemilik]', 
-          eviden2 = '$_POST[teviden]', 
+          polaritas2 = '$_POST[tpolaritas]',
+          divisi2 = '$_POST[tdivisi]',
+          pemilik2 = '$_POST[tpemilik]',
+          eviden2 = '$_POST[teviden]',
           syarat_ketentuan2 = '$_POST[tsyarat]',
           kpi_parent2 = '$_POST[tparent]'
           WHERE id_data2 = '$_GET[id]'
@@ -80,43 +80,43 @@ foreach($result as $row)
     else{
       $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
       VALUE ( '$_POST[tid]',
-              '$_POST[tdeskripsi]', 
-              '$_POST[tusulan_deskripsi]', 
+              '$_POST[tdeskripsi]',
+              '$_POST[tusulan_deskripsi]',
               '$_POST[tdefinisi]',
-              '$_POST[ttujuan]', 
-              '$_POST[tsatuan]', 
-              '$_POST[tkategori]', 
-              '$_POST[tformula]', 
-              '$_POST[tsumber]', 
+              '$_POST[ttujuan]',
+              '$_POST[tsatuan]',
+              '$_POST[tkategori]',
+              '$_POST[tformula]',
+              '$_POST[tsumber]',
               '$_POST[ttipe]',
-              '$_POST[ttarget]', 
-              '$_POST[tfrekuensi]', 
-              '$_POST[tpolaritas]', 
-              '$_POST[tdivisi]', 
-              '$_POST[tpemilik]', 
-              '$_POST[teviden]', 
-              '$_POST[tsyarat]', 
+              '$_POST[ttarget]',
+              '$_POST[tfrekuensi]',
+              '$_POST[tpolaritas]',
+              '$_POST[tdivisi]',
+              '$_POST[tpemilik]',
+              '$_POST[teviden]',
+              '$_POST[tsyarat]',
               '$_POST[tparent]')
   ");
   $simpan2 = mysqli_query($koneksi, "INSERT INTO tb_data2 (deskripsi2,definisi2,tujuan2,satuan2,kategori_satuan2,formula2,sumber_target2,tipe_kpi2,tipe_target2,frekuensi2,polaritas2,divisi2,pemilik2,eviden2,syarat_ketentuan2,kpi_parent2)
   VALUE ( '$_POST[tdeskripsi]',
           '$_POST[tdefinisi]',
-          '$_POST[ttujuan]', 
-          '$_POST[tsatuan]', 
-          '$_POST[tkategori]', 
-          '$_POST[tformula]', 
-          '$_POST[tsumber]', 
+          '$_POST[ttujuan]',
+          '$_POST[tsatuan]',
+          '$_POST[tkategori]',
+          '$_POST[tformula]',
+          '$_POST[tsumber]',
           '$_POST[ttipe]',
-          '$_POST[ttarget]', 
-          '$_POST[tfrekuensi]', 
-          '$_POST[tpolaritas]', 
-          '$_POST[tdivisi]', 
-          '$_POST[tpemilik]', 
-          '$_POST[teviden]', 
-          '$_POST[tsyarat]', 
+          '$_POST[ttarget]',
+          '$_POST[tfrekuensi]',
+          '$_POST[tpolaritas]',
+          '$_POST[tdivisi]',
+          '$_POST[tpemilik]',
+          '$_POST[teviden]',
+          '$_POST[tsyarat]',
           '$_POST[tparent]')
-  ");                           
-  
+  ");
+
 
 
 
@@ -133,7 +133,7 @@ document.location='juknis-admin.php'
 </script>";
 }
     }
-    
+
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
   }
@@ -184,10 +184,10 @@ document.location='juknis-admin.php'
     if($_GET['hal'] == "edit"){
       //tampilkan data yang akan diedit
 
-      
+
       $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
       $tampil2=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
-    
+
       $data = mysqli_fetch_array($tampil);
       $data2 = mysqli_fetch_array($tampil2);
       if($data){
@@ -236,7 +236,7 @@ document.location='juknis-admin.php'
     }
   }
 
-  
+
 ?>
 
 <!DOCTYPE html>
@@ -346,7 +346,7 @@ if (empty($_GET['hash'])){
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php 
+          <a href="#" class="d-block"> <?php
          echo $_SESSION['username'];
           ?></a>
         </div>
@@ -377,7 +377,7 @@ if (empty($_GET['hash'])){
                 Home
               </p>
             </a>
-          </li>            
+          </li>
            <li class="nav-item  menu-open">
             <a href="juknis-admin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -398,13 +398,13 @@ if (empty($_GET['hash'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Karyawan</h1>
+            <h1>Perubahan data </h1>
           </div>
           <div class="col-sm-6">
 
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="juknis-admin.php">Juknis</a></li>
-              <li class="breadcrumb-item active">Data Karyawan</li>
+              <li class="breadcrumb-item active">Perubahan Data</li>
             </ol>
           </div>
         </div>
@@ -416,14 +416,14 @@ if (empty($_GET['hash'])){
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
+
             <div class="card">
-        
+
               <!-- /.card-header -->
               <div class="card-body">
               <table class="table table-striped table:hover table-bordered">
               <?php
-            
+
             //persiapan menampilkan data
             $no = 1;
           // $tampil = mysqli_query($koneksi, "SELECT tb_data2.*,tb_data.* FROM tb_data2,tb_data LIMIT 10");
@@ -437,25 +437,25 @@ if (empty($_GET['hash'])){
           // die;
 
           // $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
-          
+
           while( $data = mysqli_fetch_array($tampil)):?>
             <tr>
-            <?php 
+            <?php
                     if ($data['usulan_deskripsi'] != $data['usulan_deskripsi2']) {
                       echo '<th align="left">'.'Usulan Deskripsi'.'</th>';
                       echo '<td>'. $data['usulan_deskripsi2'] .'</td>';
-                      echo '<td>'. '<a href="popup-admin.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
+                      echo '<td>'. '<a href="detail-admin.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Lihat Detail' . '</a>' .'</td>';
                     }
                     ?>
             </tr>
-            
+
             <tr>
-              
-              
+
+
            <?php endwhile; ?>
 
             </table>
-           
+
      <!--Akhir input data-->
               </div>
               <!-- /.card-body -->

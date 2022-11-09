@@ -244,7 +244,7 @@ document.location='juknis-admin.php'
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>log-data</title>
+  <title>AdminLTE 3 | DataTables</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -276,11 +276,6 @@ if (empty($_GET['hash'])){
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-   <!-- Preloader -->
-   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" height="60" width="60">
-  </div>
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -289,10 +284,7 @@ if (empty($_GET['hash'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="superadmin.php" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-
+        <a href="admin.php" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -320,8 +312,7 @@ if (empty($_GET['hash'])){
         </div>
       </li>
 
-
-      <!-- Notifications Dropdown Menu -->
+      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <?php
@@ -331,8 +322,8 @@ if (empty($_GET['hash'])){
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
           <a href="keluar.php" class="dropdown-item">
-          <i class="fa-solid fa-right-from-bracket"></i>
-logout
+          <i class="fa-solid fa-door-open">logout</i>
+
           </a>
       </li>
     </ul>
@@ -342,9 +333,9 @@ logout
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SIJUKI</span>
+    <a href="../index3.html" class="brand-link">
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
       <!-- Sidebar -->
@@ -393,23 +384,20 @@ logout
               <p>Juknis</p>
             </a>
           </li>
-
           <li class="nav-item">
             <a href="user-superadmin.php" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Users
+                User
               </p>
             </a>
-
           </li>
            <li class="nav-item">
             <a href="jabatan-superadmin.php" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
-              <p>Jabatan</p>
+              <p>Juknis</p>
             </a>
           </li>
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -424,14 +412,15 @@ logout
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Perubahan Data</h1>
+            <h1>Details</h1>
           </div>
           <div class="col-sm-6">
 
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="superadmin.php">Home</a></li>
               <li class="breadcrumb-item"><a href="juknis-superadmin.php">Juknis</a></li>
-              <li class="breadcrumb-item active">Perubahan Data</li>
+              <li class="breadcrumb-item"><a href="log-data-super.php">Perubahan Data</a></li>
+              <li class="breadcrumb-item active">Details</li>
             </ol>
           </div>
         </div>
@@ -467,17 +456,172 @@ logout
 
           while( $data = mysqli_fetch_array($tampil)):?>
             <tr>
-            <?php
-                    if ($data['usulan_deskripsi'] != $data['usulan_deskripsi2']) {
-                      echo '<th align="left">'.'Usulan Deskripsi'.'</th>';
-                      echo '<td>'. $data['usulan_deskripsi2'] .'</td>';
-                      echo '<td>'. '<a href="detail-superadmin.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Lihat Detail' . '</a>' .'</td>';
+
+              <?php
+                    if ($data['definisi'] != $data['definisi2']) {
+                      echo '<th align="left">'.'Definisi'.'</th>';
+                      echo '<td>'. $data['definisi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['definisi2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
+              <?php
+                    if ($data['tujuan'] != $data['tujuan2']) {
+                      echo '<th align="left">'.'Tujuan'.'</th>';
+                      echo '<td>'. $data['tujuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['tujuan2'] .'</td>';
+                    }
+                    ?>
+            </tr>
 
+            <tr>
+            <?php
+                    if ($data['satuan'] != $data['satuan2']) {
+                      echo '<th align="left">'.'Satuan'.'</th>';
+                      echo '<td>'. $data['satuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['satuan2'] .'</td>';
+
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['kategori_satuan'] != $data['kategori_satuan2']) {
+                      echo '<th align="left">'.'Kategori Satuan'.'</th>';
+                      echo '<td>'. $data['kategori_satuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['kategori_satuan2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['formula'] != $data['formula2']) {
+                      echo '<th align="left">'.'Formula'.'</th>';
+                      echo '<td>'. $data['formula']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['formula2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['sumber_target'] != $data['sumber_target2']) {
+                      echo '<th align="left">'.'Sumber Target'.'</th>';
+                      echo '<td>'. $data['sumber_target']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['sumber_target2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['tipe_kpi'] != $data['tipe_kpi2']) {
+                      echo '<th align="left">'.'Tipe KPI'.'</th>';
+                      echo '<td>'. $data['tipe_kpi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['tipe_kpi2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['tipe_target'] != $data['tipe_target2']) {
+                      echo '<th align="left">'.'Tipe Target'.'</th>';
+                      echo '<td>'. $data['tipe_target']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['tipe_target2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['frekuensi'] != $data['frekuensi2']) {
+                      echo '<th align="left">'.'Frekuensi'.'</th>';
+                      echo '<td>'. $data['frekuensi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['frekuensi2'] .'</td>';
+
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['polaritas'] != $data['polaritas2']) {
+                      echo '<th align="left">'.'Polaritas'.'</th>';
+                      echo '<td>'. $data['polaritas']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['polaritas2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['divisi'] != $data['divisi2']) {
+                      echo '<th align="left">'.'Jabatan'.'</th>';
+                      echo '<td>'. $data['divisi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['divisi2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['pemilik'] != $data['pemilik2']) {
+                      echo '<th align="left">'.'Pemilik'.'</th>';
+                      echo '<td>'. $data['pemilik']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['pemilik2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['eviden'] != $data['eviden2']) {
+                      echo '<th align="left">'.'Eviden'.'</th>';
+                      echo '<td>'. $data['eviden']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['eviden2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['syarat_ketentuan'] != $data['syarat_ketentuan2']) {
+                      echo '<th align="left">'.'Syarat & Ketentuan'.'</th>';
+                      echo '<td>'. $data['syarat_ketentuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['syarat_ketentuan2'] .'</td>';
+                    }
+                    ?>
+            </tr>
+
+            <tr>
+            <?php
+                    if ($data['kpi_parent'] != $data['kpi_parent2']) {
+                      echo '<th align="left">'.'KPI Parent'.'</th>';
+                      echo '<td>'. $data['kpi_parent']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['kpi_parent2'] .'</td>';
+                    }
+                    ?>
+            </tr>
 
            <?php endwhile; ?>
 
