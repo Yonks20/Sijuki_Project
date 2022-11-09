@@ -3,7 +3,6 @@
   height: 50px;
 }
 
-//hero
 #hero {
-  background-img: url(background.jpg);
+  background-image: url(background.jpg);
 }
