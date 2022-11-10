@@ -252,7 +252,7 @@ logout
                   if ($data['usulan_deskripsi2'] == '') {
                     echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum diubah'  .'</button>'.'</td>';
                   }else{
-                    echo '<td>'. '<a href="log-data-super.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
+                    echo '<td>'. '<a href="log-data-super.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Terdapat Perubahan Data' . '</a>' .'</td>';
                   }
                   ?>
                   <td>

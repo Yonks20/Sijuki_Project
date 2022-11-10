@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //index.php
 
@@ -6,7 +6,7 @@
 $connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
 
 $query = "
-SELECT divisi FROM tb_divisi 
+SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
@@ -53,10 +53,10 @@ foreach($result as $row)
                                               tipe_kpi2 = '$_POST[ttipe]',
                                               tipe_target2 = '$_POST[ttarget]',
                                               frekuensi2 = '$_POST[tfrekuensi]',
-                                              polaritas2 = '$_POST[tpolaritas]', 
-                                              divisi2 = '$_POST[tdivisi]', 
-                                              pemilik2 = '$_POST[tpemilik]', 
-                                              eviden2 = '$_POST[teviden]', 
+                                              polaritas2 = '$_POST[tpolaritas]',
+                                              divisi2 = '$_POST[tdivisi]',
+                                              pemilik2 = '$_POST[tpemilik]',
+                                              eviden2 = '$_POST[teviden]',
                                               syarat_ketentuan2 = '$_POST[tsyarat]',
                                               kpi_parent2 = '$_POST[tparent]',
                                               is_updated = '$hash'
@@ -82,22 +82,22 @@ foreach($result as $row)
     else{
       $simpan = mysqli_query($koneksi, "INSERT INTO tb_data2 (id_data2,deskripsi2,usulan_deskripsi2,definisi2,tujuan2,satuan2,kategori_satuan2,formula2,sumber_target2,tipe_kpi2,tipe_target2,frekuensi2,polaritas2,divisi2,pemilik2,eviden2,syarat_ketentuan2,kpi_parent2)
       VALUE ( '$_POST[tid]',
-              '$_POST[tdeskripsi]', 
-              '$_POST[tusulan_deskripsi]', 
+              '$_POST[tdeskripsi]',
+              '$_POST[tusulan_deskripsi]',
               '$_POST[tdefinisi]',
-              '$_POST[ttujuan]', 
-              '$_POST[tsatuan]', 
-              '$_POST[tkategori]', 
-              '$_POST[tformula]', 
-              '$_POST[tsumber]', 
+              '$_POST[ttujuan]',
+              '$_POST[tsatuan]',
+              '$_POST[tkategori]',
+              '$_POST[tformula]',
+              '$_POST[tsumber]',
               '$_POST[ttipe]',
-              '$_POST[ttarget]', 
-              '$_POST[tfrekuensi]', 
-              '$_POST[tpolaritas]', 
-              '$_POST[tdivisi]', 
-              '$_POST[tpemilik]', 
-              '$_POST[teviden]', 
-              '$_POST[tsyarat]', 
+              '$_POST[ttarget]',
+              '$_POST[tfrekuensi]',
+              '$_POST[tpolaritas]',
+              '$_POST[tdivisi]',
+              '$_POST[tpemilik]',
+              '$_POST[teviden]',
+              '$_POST[tsyarat]',
               '$_POST[tparent]')
   ");
 
@@ -114,12 +114,12 @@ document.location='juknis-admin.php'
 </script>";
 }
     }
-    
+
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
             while($data = mysqli_fetch_array($tampil));
     $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
-    
+
   }
 
   //deklarasi variabel untuk menampung data yang akan diedit
@@ -169,10 +169,10 @@ document.location='juknis-admin.php'
     if($_GET['hal'] == "edit"){
       //tampilkan data yang akan diedit
 
-      
+
       $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
       $tampill=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
-    
+
       $data = mysqli_fetch_array($tampil);
       $dataa = mysqli_fetch_array($tampill);
       if($data){
@@ -217,11 +217,11 @@ document.location='juknis-admin.php'
         $veviden2 = $dataa['eviden'];
         $vsyarat_ketentuan2 = $dataa['syarat_ketentuan'];
         $vkpi_parent2 = $dataa['kpi_parent'];
-      } 
+      }
     }
   }
 
-  
+
 ?>
 
 <!doctype html>
@@ -238,14 +238,14 @@ document.location='juknis-admin.php'
         <title>Typeahead Autocomplete using JavaScript in PHP for Bootstrap 5</title>
     </head>
 
-    <?php 
+    <?php
 	session_start();
- 
+
 	// cek apakah yang mengakses halaman ini sudah login
 	if($_SESSION['level']==""){
 		header("location:../login.php?pesan=gagal");
 	}
- 
+
 	?>
 
 
@@ -254,7 +254,7 @@ document.location='juknis-admin.php'
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Edit Data KPI</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -331,9 +331,9 @@ document.location='juknis-admin.php'
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="admin.php" class="brand-link">
+      <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">For-Pi</span>
     </a>
 
       <!-- Sidebar -->
@@ -344,7 +344,7 @@ document.location='juknis-admin.php'
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php 
+          <a href="#" class="d-block"> <?php
          echo $_SESSION['username'];
           ?></a>
         </div>
@@ -375,7 +375,7 @@ document.location='juknis-admin.php'
                 Home
               </p>
             </a>
-          </li>            
+          </li>
            <li class="nav-item  menu-open">
             <a href="juknis-admin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -392,17 +392,17 @@ document.location='juknis-admin.php'
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-   
+
 
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
+
             <div class="card">
               <div class="card-header mx-auto">
-                <h1>Edit Data Karyawan</h1>
+                <h1>Edit Data KPI</h1>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -419,7 +419,7 @@ document.location='juknis-admin.php'
   <div class="row mb-3">
   <label for="inputEmail3" class="col-sm-2 col-form-label">Usulan Deskripsi KPI</label>
     <div class="col-sm-10">
-      
+
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tusulan_deskripsi"><?= $vusulan_deskripsi ?></textarea>
     </div>
   </div>
@@ -430,7 +430,7 @@ document.location='juknis-admin.php'
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tdefinisi"><?= $vdefinisi ?></textarea>
     </div>
   </div>
-          
+
 
         <div class="row mb-3">
     <label for="" class="col-sm-2 col-form-label">Tujuan KPI</label>
@@ -558,7 +558,7 @@ document.location='juknis-admin.php'
       <button class="btn btn-success" name="btn-simpan" type="submit">Save</button>
       <button class="btn btn-danger" name="btn-clear" type="reset">Clear</button>
      </div>
-</form>   
+</form>
         </div>
      <!--Akhir input data-->
         </div>
@@ -631,14 +631,14 @@ var auto_complete = new Autocomplete(document.getElementById('divisi'), {
     maximumItems:10,
     highlightTyped:true,
     highlightClass : 'fw-bold text-primary'
-}); 
+});
 
 var auto_pemilik = new Autocomplete(document.getElementById('pemilik'), {
     data:<?php echo json_encode($data); ?>,
     maximumItems:10,
     highlightTyped:true,
     highlightClass : 'fw-bold text-primary'
-}); 
+});
 
 </script>
 <script src="../library/autocomplete.js"></script>

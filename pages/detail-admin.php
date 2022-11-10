@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //index.php
 
@@ -6,7 +6,7 @@
 $connect = new PDO("mysql:host=localhost; dbname=kinerjapegawai", "root", "");
 
 $query = "
-SELECT divisi FROM tb_divisi 
+SELECT divisi FROM tb_divisi
 ORDER BY divisi ASC
 ";
 
@@ -52,10 +52,10 @@ foreach($result as $row)
           tipe_kpi2 = '$_POST[ttipe]',
           tipe_target2 = '$_POST[ttarget]',
           frekuensi2 = '$_POST[tfrekuensi]',
-          polaritas2 = '$_POST[tpolaritas]', 
-          divisi2 = '$_POST[tdivisi]', 
-          pemilik2 = '$_POST[tpemilik]', 
-          eviden2 = '$_POST[teviden]', 
+          polaritas2 = '$_POST[tpolaritas]',
+          divisi2 = '$_POST[tdivisi]',
+          pemilik2 = '$_POST[tpemilik]',
+          eviden2 = '$_POST[teviden]',
           syarat_ketentuan2 = '$_POST[tsyarat]',
           kpi_parent2 = '$_POST[tparent]'
           WHERE id_data2 = '$_GET[id]'
@@ -80,43 +80,43 @@ foreach($result as $row)
     else{
       $simpan = mysqli_query($koneksi, "INSERT INTO tb_data (id_data,deskripsi,usulan_deskripsi,definisi,tujuan,satuan,kategori_satuan,formula,sumber_target,tipe_kpi,tipe_target,frekuensi,polaritas,divisi,pemilik,eviden,syarat_ketentuan,kpi_parent)
       VALUE ( '$_POST[tid]',
-              '$_POST[tdeskripsi]', 
-              '$_POST[tusulan_deskripsi]', 
+              '$_POST[tdeskripsi]',
+              '$_POST[tusulan_deskripsi]',
               '$_POST[tdefinisi]',
-              '$_POST[ttujuan]', 
-              '$_POST[tsatuan]', 
-              '$_POST[tkategori]', 
-              '$_POST[tformula]', 
-              '$_POST[tsumber]', 
+              '$_POST[ttujuan]',
+              '$_POST[tsatuan]',
+              '$_POST[tkategori]',
+              '$_POST[tformula]',
+              '$_POST[tsumber]',
               '$_POST[ttipe]',
-              '$_POST[ttarget]', 
-              '$_POST[tfrekuensi]', 
-              '$_POST[tpolaritas]', 
-              '$_POST[tdivisi]', 
-              '$_POST[tpemilik]', 
-              '$_POST[teviden]', 
-              '$_POST[tsyarat]', 
+              '$_POST[ttarget]',
+              '$_POST[tfrekuensi]',
+              '$_POST[tpolaritas]',
+              '$_POST[tdivisi]',
+              '$_POST[tpemilik]',
+              '$_POST[teviden]',
+              '$_POST[tsyarat]',
               '$_POST[tparent]')
   ");
   $simpan2 = mysqli_query($koneksi, "INSERT INTO tb_data2 (deskripsi2,definisi2,tujuan2,satuan2,kategori_satuan2,formula2,sumber_target2,tipe_kpi2,tipe_target2,frekuensi2,polaritas2,divisi2,pemilik2,eviden2,syarat_ketentuan2,kpi_parent2)
   VALUE ( '$_POST[tdeskripsi]',
           '$_POST[tdefinisi]',
-          '$_POST[ttujuan]', 
-          '$_POST[tsatuan]', 
-          '$_POST[tkategori]', 
-          '$_POST[tformula]', 
-          '$_POST[tsumber]', 
+          '$_POST[ttujuan]',
+          '$_POST[tsatuan]',
+          '$_POST[tkategori]',
+          '$_POST[tformula]',
+          '$_POST[tsumber]',
           '$_POST[ttipe]',
-          '$_POST[ttarget]', 
-          '$_POST[tfrekuensi]', 
-          '$_POST[tpolaritas]', 
-          '$_POST[tdivisi]', 
-          '$_POST[tpemilik]', 
-          '$_POST[teviden]', 
-          '$_POST[tsyarat]', 
+          '$_POST[ttarget]',
+          '$_POST[tfrekuensi]',
+          '$_POST[tpolaritas]',
+          '$_POST[tdivisi]',
+          '$_POST[tpemilik]',
+          '$_POST[teviden]',
+          '$_POST[tsyarat]',
           '$_POST[tparent]')
-  ");                           
-  
+  ");
+
 
 
 
@@ -133,7 +133,7 @@ document.location='juknis-admin.php'
 </script>";
 }
     }
-    
+
     $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data asc");
             while($data = mysqli_fetch_array($tampil));
   }
@@ -184,10 +184,10 @@ document.location='juknis-admin.php'
     if($_GET['hal'] == "edit"){
       //tampilkan data yang akan diedit
 
-      
+
       $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
       $tampil2=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
-    
+
       $data = mysqli_fetch_array($tampil);
       $data2 = mysqli_fetch_array($tampil2);
       if($data){
@@ -236,7 +236,7 @@ document.location='juknis-admin.php'
     }
   }
 
-  
+
 ?>
 
 <!DOCTYPE html>
@@ -346,7 +346,7 @@ if (empty($_GET['hash'])){
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php 
+          <a href="#" class="d-block"> <?php
          echo $_SESSION['username'];
           ?></a>
         </div>
@@ -377,7 +377,7 @@ if (empty($_GET['hash'])){
                 Home
               </p>
             </a>
-          </li>            
+          </li>
            <li class="nav-item  menu-open">
             <a href="juknis-admin.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -398,13 +398,14 @@ if (empty($_GET['hash'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Karyawan</h1>
+            <h1>Details</h1>
           </div>
           <div class="col-sm-6">
 
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="juknis-admin.php">Juknis</a></li>
-              <li class="breadcrumb-item active">Data Karyawan</li>
+              <li class="breadcrumb-item"><a href="log-data.php">Perubahan Data</a></li>
+              <li class="breadcrumb-item active">Details</li>
             </ol>
           </div>
         </div>
@@ -416,14 +417,14 @@ if (empty($_GET['hash'])){
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
+
             <div class="card">
-        
+
               <!-- /.card-header -->
               <div class="card-body">
               <table class="table table-striped table:hover table-bordered">
               <?php
-            
+
             //persiapan menampilkan data
             $no = 1;
           // $tampil = mysqli_query($koneksi, "SELECT tb_data2.*,tb_data.* FROM tb_data2,tb_data LIMIT 10");
@@ -437,171 +438,180 @@ if (empty($_GET['hash'])){
           // die;
 
           // $tampill = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
-          
-          while( $data = mysqli_fetch_array($tampil)):?>            
+
+          while( $data = mysqli_fetch_array($tampil)):?>
+
+<tr>
+  <td></td>
+  <td align="center"> <b>Data Lama</b> </td>
+  <td align="center"> <b>Status</b> </td>
+  <td align="center"> <b>Data Baru</b> </td>
+
+</tr>
+
             <tr>
-              
-              <?php 
+
+              <?php
                     if ($data['definisi'] != $data['definisi2']) {
                       echo '<th align="left">'.'Definisi'.'</th>';
-                      echo '<td>'. $data['definisi']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['definisi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['definisi2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-              <?php 
+              <?php
                     if ($data['tujuan'] != $data['tujuan2']) {
                       echo '<th align="left">'.'Tujuan'.'</th>';
                       echo '<td>'. $data['tujuan']. '</td>';
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['tujuan2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['satuan'] != $data['satuan2']) {
                       echo '<th align="left">'.'Satuan'.'</th>';
-                      echo '<td>'. $data['satuan']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['satuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['satuan2'] .'</td>';
-                      
+
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['kategori_satuan'] != $data['kategori_satuan2']) {
                       echo '<th align="left">'.'Kategori Satuan'.'</th>';
                       echo '<td>'. $data['kategori_satuan']. '</td>';
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
-                      echo '<td>'. $data['kategori_satuan2'] .'</td>';                      
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
+                      echo '<td>'. $data['kategori_satuan2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['formula'] != $data['formula2']) {
                       echo '<th align="left">'.'Formula'.'</th>';
-                      echo '<td>'. $data['formula']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
-                      echo '<td>'. $data['formula2'] .'</td>';                     
+                      echo '<td>'. $data['formula']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
+                      echo '<td>'. $data['formula2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['sumber_target'] != $data['sumber_target2']) {
                       echo '<th align="left">'.'Sumber Target'.'</th>';
-                      echo '<td>'. $data['sumber_target']. '</td>';                    
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['sumber_target']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['sumber_target2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['tipe_kpi'] != $data['tipe_kpi2']) {
                       echo '<th align="left">'.'Tipe KPI'.'</th>';
-                      echo '<td>'. $data['tipe_kpi']. '</td>';                   
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['tipe_kpi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['tipe_kpi2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['tipe_target'] != $data['tipe_target2']) {
                       echo '<th align="left">'.'Tipe Target'.'</th>';
-                      echo '<td>'. $data['tipe_target']. '</td>';                      
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['tipe_target']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['tipe_target2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['frekuensi'] != $data['frekuensi2']) {
                       echo '<th align="left">'.'Frekuensi'.'</th>';
-                      echo '<td>'. $data['frekuensi']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['frekuensi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['frekuensi2'] .'</td>';
-                      
+
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['polaritas'] != $data['polaritas2']) {
                       echo '<th align="left">'.'Polaritas'.'</th>';
-                      echo '<td>'. $data['polaritas']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['polaritas']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['polaritas2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['divisi'] != $data['divisi2']) {
                       echo '<th align="left">'.'Jabatan'.'</th>';
-                      echo '<td>'. $data['divisi']. '</td>';                    
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['divisi']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['divisi2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['pemilik'] != $data['pemilik2']) {
                       echo '<th align="left">'.'Pemilik'.'</th>';
-                      echo '<td>'. $data['pemilik']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['pemilik']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['pemilik2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['eviden'] != $data['eviden2']) {
                       echo '<th align="left">'.'Eviden'.'</th>';
-                      echo '<td>'. $data['eviden']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['eviden']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['eviden2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['syarat_ketentuan'] != $data['syarat_ketentuan2']) {
                       echo '<th align="left">'.'Syarat & Ketentuan'.'</th>';
-                      echo '<td>'. $data['syarat_ketentuan']. '</td>';                     
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['syarat_ketentuan']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['syarat_ketentuan2'] .'</td>';
                     }
                     ?>
             </tr>
 
             <tr>
-            <?php 
+            <?php
                     if ($data['kpi_parent'] != $data['kpi_parent2']) {
                       echo '<th align="left">'.'KPI Parent'.'</th>';
-                      echo '<td>'. $data['kpi_parent']. '</td>';                    
-                      echo '<td>'.'<p class="btn text-success">'  . 'Sudah diubah menjadi'  .'</p>'.'</td>';
+                      echo '<td>'. $data['kpi_parent']. '</td>';
+                      echo '<td>'.'<p class="btn text-success">'  . 'Terdapat Perubahan Data'  .'</p>'.'</td>';
                       echo '<td>'. $data['kpi_parent2'] .'</td>';
                     }
                     ?>
@@ -610,7 +620,7 @@ if (empty($_GET['hash'])){
            <?php endwhile; ?>
 
             </table>
-           
+
      <!--Akhir input data-->
               </div>
               <!-- /.card-body -->

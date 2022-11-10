@@ -16,7 +16,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sijuki</title>
+  <title>For-pi</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -108,9 +108,9 @@ logout
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="admin.php" class="brand-link">
       <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SIJUKI</span>
+      <span class="brand-text font-weight-light">For-Pi</span>
     </a>
 
     <!-- Sidebar -->
@@ -175,7 +175,7 @@ logout
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Karyawan</h1>
+            <h1>Data KPI</h1>
           </div>
           <div class="col-sm-6">
           <a href="create-admin.php" class="btn-create">New Data+</a>
@@ -240,13 +240,13 @@ logout
                   <?php
 
                   if ($data['usulan_deskripsi2'] == '') {
-                    echo '<td>'.'<button class="btn btn-secondary">'  . 'Data belum diubah'  .'</button>'.'</td>';
+                    echo '<td></td>';
                   }else{
-                    echo '<td>'. '<a href="log-data.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Data sudah diubah' . '</a>' .'</td>';
+                    echo '<td>'. '<a href="log-data.php?hash='.$data['is_updated'].'" class="btn btn-info">' . 'Terdapat Perubahan Data' . '</a>' .'</td>';
                   }
                   ?>
                   <td>
-                    <a href="view-admin.php?hal=view&id=<?=$data['id_data2']?>" class="btn btn-success">View</a>
+                    <a href="view-admin.php?hal=view&id=<?=$data['id_data2']?>" <button class="btn btn"> <i class="fa-sharp fa-solid fa-eye"></i> </button>
                     <a href="edit-admin.php?hal=edit&id=<?=$data['id_data2']?>" class="btn btn-warning">Edit</a>
                     <a href="delete-admin.php?hal=delete&id=<?=$data['id_data2']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
                   </td>
