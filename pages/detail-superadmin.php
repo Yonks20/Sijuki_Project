@@ -421,7 +421,14 @@ if (empty($_GET['hash'])){
               <li class="breadcrumb-item"><a href="juknis-superadmin.php">Juknis</a></li>
               <li class="breadcrumb-item"><a href="log-data-super.php">Juknis</a></li>
 
-              <li class="breadcrumb-item"><a href="log-data-super.php?hash='.$data['is_updated'].'" >Perubahan</a>  </li>
+              <?php
+
+          $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2  order by id_data2 asc");
+          $data = mysqli_fetch_array($tampil);
+          ?>
+              <?php
+              echo '<li class="breadcrumb-item">'. '<a href="log-data-super.php?hash='.$data['is_updated'].'" >' . 'Perubahan Data' . '</a>' .'</li>';
+              ?>
 
               <li class="breadcrumb-item active">Details</li>
             </ol>

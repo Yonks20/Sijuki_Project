@@ -264,6 +264,27 @@ logout
             </div>
           </div>
           <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                require '../config.php';
+                $query = "SELECT is_updated FROM tb_data2 WHERE NOT is_updated = '' ";
+                $query_run = mysqli_query($koneksi, $query);
+
+                $row = mysqli_num_rows($query_run);
+                echo '<h3> '.$row. '<h3>';
+                ?>
+                <p>Perubahan Data</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="juknis-superadmin.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
         </div>
         <!-- /.row -->
         <!-- Main row -->
