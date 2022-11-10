@@ -104,29 +104,29 @@ foreach($result as $row)
       //tampilkan data yang akan diedit
 
 
-      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data WHERE id_data = '$_GET[id]'");
+      $tampil=mysqli_query($koneksi, "SELECT * FROM tb_data2 WHERE id_data2 = '$_GET[id]'");
 
       $data = mysqli_fetch_array($tampil);
       if($data){
         //jika data ditemukan, maka data ditampung kedalam variabel
-        $vid = $data['id_data'];
-        $vdeskripsi = $data['deskripsi'];
-        $vusulan_deskripsi = $data['usulan_deskripsi'];
-        $vdefinisi = $data['definisi'];
-        $vtujuan = $data['tujuan'];
-        $vsatuan = $data['satuan'];
-        $vkategori_satuan = $data['kategori_satuan'];
-        $vformula = $data['formula'];
-        $vsumber_target = $data['sumber_target'];
-        $vtipe_kpi = $data['tipe_kpi'];
-        $vtipe_target = $data['tipe_target'];
-        $vfrekuensi = $data['frekuensi'];
-        $vpolaritas = $data['polaritas'];
-        $vdivisi = $data['divisi'];
-        $vpemilik = $data['pemilik'];
-        $veviden = $data['eviden'];
-        $vsyarat_ketentuan = $data['syarat_ketentuan'];
-        $vkpi_parent = $data['kpi_parent'];
+        $vid = $data['id_data2'];
+        $vdeskripsi = $data['deskripsi2'];
+        $vusulan_deskripsi = $data['usulan_deskripsi2'];
+        $vdefinisi = $data['definisi2'];
+        $vtujuan = $data['tujuan2'];
+        $vsatuan = $data['satuan2'];
+        $vkategori_satuan = $data['kategori_satuan2'];
+        $vformula = $data['formula2'];
+        $vsumber_target = $data['sumber_target2'];
+        $vtipe_kpi = $data['tipe_kpi2'];
+        $vtipe_target = $data['tipe_target2'];
+        $vfrekuensi = $data['frekuensi2'];
+        $vpolaritas = $data['polaritas2'];
+        $vdivisi = $data['divisi2'];
+        $vpemilik = $data['pemilik2'];
+        $veviden = $data['eviden2'];
+        $vsyarat_ketentuan = $data['syarat_ketentuan2'];
+        $vkpi_parent = $data['kpi_parent2'];
       }
     }
   }
@@ -334,99 +334,100 @@ logout
 
               <!-- /.card-header -->
               <div class="card-body">
-              <table class="table table-striped table:hover table-bordered">
+              <table id="example1" class="table table-striped table:hover table-bordered">
+              <thead>
             <tr>
               <th align="left">Deskripsi</th>
-              <td><?= $data['deskripsi'] ?></td>
+              <td><?= $data['deskripsi2'] ?></td>
+            </tr>
+</thead>         
+            <tr>
+              <th align="left">Usulan Deskripsi</th>       
+              <td><?= $data['usulan_deskripsi2'] ?></td>
             </tr>
 
             <tr>
-              <th align="left">Usulan Deskripsi</th>
-              <td><?= $data['usulan_deskripsi'] ?></td>
-            </tr>
-
-            <tr>
-              <th align="left">Definisi</th>
-              <td><?= $data['definisi'] ?></td>
+              <th align="left">Definisi</th>    
+              <td><?= $data['definisi2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Tujuan</th>
-              <td><?= $data['tujuan'] ?></td>
+              <td><?= $data['tujuan2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Satuan</th>
-              <td><?= $data['satuan'] ?></td>
+              <td><?= $data['satuan2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Kategori Satuan</th>
-              <td><?= $data['kategori_satuan'] ?></td>
+              <td><?= $data['kategori_satuan2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Formula</th>
-              <td><?= $data['formula'] ?></td>
+              <td><?= $data['formula2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Sumber Target</th>
-              <td><?= $data['sumber_target'] ?></td>
+              <td><?= $data['sumber_target2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Tipe KPI</th>
-              <td><?= $data['tipe_kpi'] ?></td>
+              <td><?= $data['tipe_kpi2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Tipe Target</th>
-              <td><?= $data['tipe_target'] ?></td>
+              <td><?= $data['tipe_target2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Frekuensi</th>
-              <td><?= $data['frekuensi'] ?></td>
+              <td><?= $data['frekuensi2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Polaritas</th>
-              <td><?= $data['polaritas'] ?></td>
+              <td><?= $data['polaritas2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Divisi</th>
-              <td><?= $data['divisi'] ?></td>
+              <td><?= $data['divisi2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Pemilik</th>
-              <td><?= $data['pemilik'] ?></td>
+              <td><?= $data['pemilik2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Eviden</th>
-              <td><?= $data['eviden'] ?></td>
+              <td><?= $data['eviden2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">Syarat & Ketentuan</th>
-              <td><?= $data['syarat_ketentuan'] ?></td>
+              <td><?= $data['syarat_ketentuan2'] ?></td>
             </tr>
 
             <tr>
               <th align="left">KPI Parent</th>
-              <td><?= $data['kpi_parent'] ?></td>
+              <td><?= $data['kpi_parent2'] ?></td>
             </tr>
 
-
+            
 
             <?php
 
               //persiapan menampilkan data
               $no = 1;
-            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data order by id_data asc");
+            $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2 order by id_data2 asc");
             while($data = mysqli_fetch_array($tampil)) :
             ?>
             <?php endwhile; ?>

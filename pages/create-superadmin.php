@@ -372,9 +372,12 @@ foreach($resultt as $row)
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="ttipe">
   <option selected disabled>Tipe KPI</option>
-  <option value="EXACT">EXACT</option>
-  <option value="PROXY">PROXY</option>
-  <option value="ACTIVITY">ACTIVITY</option>
+  <?php
+  $records = mysqli_query($koneksi, "SELECT * FROM tb_tipekpi");
+  while($data = mysqli_fetch_array($records)){
+    echo "<option value='".$data['tipe_kpi']."'>".$data['tipe_kpi']."</option>";
+  }
+  ?>
 </select>
 </div>
   </div>
