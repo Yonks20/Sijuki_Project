@@ -346,9 +346,12 @@ foreach($resultt as $row)
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tkategori">
   <option selected disabled>Kategori Satuan</option>
-  <option value="Jumlah">Jumlah</option>
-  <option value="Persentase">Persentase</option>
-  <option value="Rupiah">Rupiah</option>
+  <?php
+  $records = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
+  while($data = mysqli_fetch_array($records)){
+    echo "<option value='".$data['kategori_satuan']."'>".$data['kategori_satuan']."</option>";
+  }
+  ?>
 </select>
 </div>
   </div>
@@ -387,8 +390,12 @@ foreach($resultt as $row)
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="ttarget">
   <option selected disabled>Tipe Target</option>
-  <option value="Akumulatif">Akumulatif</option>
-  <option value="Non Akumulatif">Non Akumulatif</option>
+  <?php
+  $records = mysqli_query($koneksi, "SELECT * FROM tb_tipetarget");
+  while($data = mysqli_fetch_array($records)){
+    echo "<option value='".$data['tipe_target']."'>".$data['tipe_target']."</option>";
+  }
+  ?>
 </select>
 </div>
   </div>
@@ -398,9 +405,12 @@ foreach($resultt as $row)
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tfrekuensi">
   <option selected disabled>Frekuensi</option>
-  <option value="Bulanan">Bulanan</option>
-  <option value="Triwulan">Triwulan</option>
-  <option value="Semesteran">Semesteran</option>
+  <?php
+  $records = mysqli_query($koneksi, "SELECT * FROM tb_frekuensi");
+  while($data = mysqli_fetch_array($records)){
+    echo "<option value='".$data['frekuensi']."'>".$data['frekuensi']."</option>";
+  }
+  ?>
 </select>
 </div>
   </div>
@@ -411,9 +421,12 @@ foreach($resultt as $row)
     <div class="col-sm-10">
     <select class="form-select" aria-label="Default select example" name="tpolaritas">
   <option selected disabled>Polaritas</option>
-  <option value="POSITIF">POSITIF</option>
-  <option value="NEGATIF">NEGATIF</option>
-  <option value="RANGE">RANGE</option>
+  <?php
+  $records = mysqli_query($koneksi, "SELECT * FROM tb_polaritas");
+  while($data = mysqli_fetch_array($records)){
+    echo "<option value='".$data['polaritas']."'>".$data['polaritas']."</option>";
+  }
+  ?>
 </select>
 </div>
   </div>
