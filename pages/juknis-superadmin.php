@@ -260,9 +260,9 @@ logout
                   }
                   ?>
                   <td>
-                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data2']?>" class="nav-item">
-                    <i class="fa-regular fa-regular fa-eye"></i><p>View</p></a>
-
+                  <div class="viewaction">
+                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data2']?>" class="actionview"><i class="fa-regular fa-regular fa-eye"></i>View</a>
+                    </div>
 
                     <a href="edit-superadmin.php?hal=edit&id=<?=$data['id_data2']?>" class="nav-item">
                     <i class="fa-solid fa-pen"></i><p>Edit</p> </a>
