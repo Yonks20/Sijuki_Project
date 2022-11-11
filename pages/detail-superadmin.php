@@ -333,9 +333,9 @@ if (empty($_GET['hash'])){
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../index3.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="index3.html" class="brand-link">
+      <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">For-Pi</span>
     </a>
 
       <!-- Sidebar -->
@@ -393,9 +393,9 @@ if (empty($_GET['hash'])){
             </a>
           </li>
            <li class="nav-item">
-            <a href="jabatan-superadmin.php" class="nav-link">
+            <a href="tools-super.php" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
-              <p>Juknis</p>
+              <p>Tools</p>
             </a>
           </li>
         </ul>
@@ -419,8 +419,6 @@ if (empty($_GET['hash'])){
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="superadmin.php">Home</a></li>
               <li class="breadcrumb-item"><a href="juknis-superadmin.php">Juknis</a></li>
-              <li class="breadcrumb-item"><a href="log-data-super.php">Juknis</a></li>
-
               <?php
 
           $tampil = mysqli_query($koneksi, "SELECT * FROM tb_data2  order by id_data2 asc");

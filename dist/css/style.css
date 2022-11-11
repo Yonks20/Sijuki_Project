@@ -25,3 +25,7 @@
 .btn {
   background-color: 497174;
 }
+
+h1.hello {
+  color: red !important;
+}

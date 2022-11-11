@@ -106,8 +106,9 @@ logout
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SIJUKI</span>
+      <span class="brand-text font-weight-light">For-Pi</span>
     </a>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -165,9 +166,9 @@ logout
           </li>
 
           <li class="nav-item">
-            <a href="jabatan-superadmin.php" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>Jabatan</p>
+            <a href="tools-super.php" class="nav-link">
+             <i class="nav-icon fas fa-screwdriver-wrench"></i>
+            <p>Tools</p>
             </a>
           </li>
 
@@ -178,6 +179,8 @@ logout
     <!-- /.sidebar -->
   </aside>
 
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -186,6 +189,7 @@ logout
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Data Karyawan</h1>
+
           </div>
           <div class="col-sm-6">
           <a href="create-superadmin.php" class="btn-create">New Data+</a>
@@ -256,9 +260,15 @@ logout
                   }
                   ?>
                   <td>
-                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data2']?>" class="btn btn-success">View</a>
-                    <a href="edit-superadmin.php?hal=edit&id=<?=$data['id_data2']?>" class="btn btn-warning">Edit</a>
-                    <a href="delete-superadmin.php?hal=delete&id=<?=$data['id_data2']?>>" class="btn btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</a>
+                    <a href="view-superadmin.php?hal=view&id=<?=$data['id_data2']?>" class="nav-item">
+                    <i class="fa-regular fa-regular fa-eye"></i><p>View</p></a>
+
+
+                    <a href="edit-superadmin.php?hal=edit&id=<?=$data['id_data2']?>" class="nav-item">
+                    <i class="fa-solid fa-pen"></i><p>Edit</p> </a>
+
+                    <a href="delete-superadmin.php?hal=delete&id=<?=$data['id_data2']?>>" class="nav-item" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">
+                    <i class="fa-solid fa-trash"></i> <p>Delete</p> </a>
                   </td>
                   <?php endwhile; ?>
                   </tbody>

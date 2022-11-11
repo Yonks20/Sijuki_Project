@@ -233,7 +233,7 @@ logout
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="../dist/img/Logo_PLNN.png" alt="PLNLOGO" class="brand-image img-rectangle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SIJUKI</span>
+      <span class="brand-text font-weight-light">For-Pi</span>
     </a>
 
       <!-- Sidebar -->
@@ -291,9 +291,9 @@ logout
           </li>
 
           <li class="nav-item">
-            <a href="jabatan-superadmin.php" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>Jabatan</p>
+            <a href="tools-super.php" class="nav-link">
+             <i class="nav-icon fas fa-screwdriver-wrench"></i>
+            <p>Tools</p>
             </a>
           </li>
 
@@ -340,14 +340,14 @@ logout
               <th align="left">Deskripsi</th>
               <td><?= $data['deskripsi2'] ?></td>
             </tr>
-</thead>         
+</thead>
             <tr>
-              <th align="left">Usulan Deskripsi</th>       
+              <th align="left">Usulan Deskripsi</th>
               <td><?= $data['usulan_deskripsi2'] ?></td>
             </tr>
 
             <tr>
-              <th align="left">Definisi</th>    
+              <th align="left">Definisi</th>
               <td><?= $data['definisi2'] ?></td>
             </tr>
 
@@ -421,7 +421,7 @@ logout
               <td><?= $data['kpi_parent2'] ?></td>
             </tr>
 
-            
+
 
             <?php
 

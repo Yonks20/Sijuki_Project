@@ -397,9 +397,9 @@ logout
           </li>
 
           <li class="nav-item">
-            <a href="jabatan-superadmin.php" class="nav-link">
+            <a href="tools-super.php" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
-            <p>Jabatan</p>
+            <p>Tools</p>
             </a>
           </li>
 

@@ -157,15 +157,15 @@ logout
             </a>
           </li>
 
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="user-superadmin.php" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>User</p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="tools-super.php" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="jabatan-superadmin.php" class="nav-link">
              <i class="nav-icon fas fa-screwdriver-wrench"></i>
             <p>Tools</p>
             </a>
@@ -185,12 +185,12 @@ logout
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Karyawan</h1>
+            <h1>Tambahkan Data</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="superadmin.php">Home</a></li>
-              <li class="breadcrumb-item active">User</li>
+              <li class="breadcrumb-item active">Tools</li>
             </ol>
           </div>
         </div>
@@ -206,87 +206,60 @@ logout
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Daftarkan Akun </h3>
+          <h3 class="card-title">Tess</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+
           </div>
+
         </div>
         <div class="card-body">
 
-          <form action="connect.php" method="post">
-<br>
-        <div class="row mb-3">
-    <label for="nama" class="col-sm-2 col-form-label nama" name="nama">Nama</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="nama">
-    </div>
-  </div>
+        <table class="table table-striped table:hover table-bordered">
 
-  <div class="row mb-3">
-    <label for="username" class="col-sm-2 col-form-label">Username</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control username" name="username">
-    </div>
-  </div>
+        <tr>
+              <th>Deskripsi</th>
+              <th>Aksi</th>
+            </tr>
 
-  <div class="row mb-3">
-    <label for="password" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control password" name="password">
-    </div>
-  </div>
+        <tr>
+              <th>Tambahkan data pada kolom jabatan</th>
+              <td><a class="btn btn-primary" href="../pages/jabatan-superadmin.php" role="button">Tambah Data Jabatan</a></td>
+            </tr>
 
-  <div class="checkbox">
-  <div class="row mb-3">
-    <label for="password" class="col-sm-2 col-form-label">Level</label>
-    <div class="col-sm-10">
-      <label><input type="checkbox" value="superadmin" name="level">Superadmin</label><br>
-      <label><input type="checkbox" value="admin" name="level">Admin</label><br>
-      <label><input type="checkbox" value="user" name="level">User</label>
-</div>
-</div>
-</div>
+            <tr>
+              <th>Tambahkan data pada Kategori Satuan</th>
+              <th><a class="btn btn-primary" href="../pages/kategori-satuan.php" role="button">Tambah Data Kategori Satuan</a></th>
+            </tr>
 
-  <div class="text-center">
-  <input type="submit" class="btn btn-primary btn-register">
-</form>
-<br>
-<br>
+            <tr>
+              <th>Tambahkan data pada Tipe KPI</th>
+              <td><a class="btn btn-primary" href="../pages/tipe-kpi.php" role="button">Tambah Data Tipe KPI</a></td>
+            </tr>
 
+            <tr>
+              <th>Tambahkan data pada Tipe Target</th>
+              <th><a class="btn btn-primary" href="../pages/tipe-target.php" role="button">Tambah Data Tipe Target</a></th>
+            </tr>
+
+            <tr>
+              <th>Tambahkan data pada Frekuensi</th>
+              <td><a class="btn btn-primary" href="../pages/frekuensi.php" role="button">Tambah Data Frekuensi</a></td>
+            </tr>
+
+            <tr>
+              <th>Tambahkan data pada Polaritas</th>
+              <th><a class="btn btn-primary" href="../pages/polaritas.php" role="button">Tambahkan Data Polaritas</a></th>
+            </tr>
+
+          </table>
 
         </div>
 
-        <table class="table table-striped table:hover table-bordered">
-            <tr>
-              <th>ID</th>
-              <th>Nama</th>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Level</th>
-            </tr>
-            <?php
-              //persiapan menampilkan data
-            $user = mysqli_query($koneksi, "SELECT * FROM tb_login order by id asc");
-            while($account = mysqli_fetch_array($user)) :
-            ?>
 
-            <tr>
-              <td><?= $account['id'] ?></td>
-              <td><?= $account['nama'] ?></td>
-              <td><?= $account['username'] ?></td>
-              <td>Password Encryption...</td>
-              <td><?= $account['level'] ?></td>
-            </tr>
-            <?php endwhile; ?>
-
-
-      </table>
 
         <!-- /.card-body -->
               <!-- /.card-footer-->
